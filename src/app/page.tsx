@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 
 import HeroSection from '@/components/features/HeroSection';
+import AutoCarousel from '@/components/features/AutoCarousel';
 import Loader from '@/components/ui/Loader';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
     <>
       <Suspense fallback={<Loader />}>
         <HeroSection />
+        <AutoCarousel />
       </Suspense>
     </>
   );

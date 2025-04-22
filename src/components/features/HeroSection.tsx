@@ -58,7 +58,7 @@ export default function HeroSection() {
 
       {/* Main heading */}
       <div className="text-center px-4">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl max-w-4xl mx-auto">
+        <h1 className="text-5xl font-light md:text-6xl lg:text-7xl max-w-4xl mx-auto">
           Built to scale all private funds & Public funds
         </h1>
         <p className="mt-8 text-xl max-w-2xl mx-auto">
@@ -78,7 +78,7 @@ export default function HeroSection() {
           return (
             <div
               key={option.id}
-              className="flex flex-col bg-brand-950 bg-opacity-30 rounded-lg overflow-hidden"
+              className="flex flex-col bg-brand-950 bg-opacity-30 rounded-lg overflow-hidden border-b-2"
             >
               <div className="relative h-96">
                 {!loaded && (
@@ -88,7 +88,7 @@ export default function HeroSection() {
                   src={option.imageUrl}
                   alt={option.title}
                   onLoad={() => setLoaded(true)}
-                  className={`w-full h-full object-cover transition-opacity duration-300 ${
+                  className={`w-full h-full object-fit transition-opacity duration-300 ${
                     loaded ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
@@ -122,6 +122,40 @@ export default function HeroSection() {
             </div>
           );
         })}
+      </div>
+      {/* Brands  */}
+      <div className="mt-20 text-center px-4">
+        <h3 className="text-2xl sm:text-3xl mb-8 font-light leading-8 text-white">
+          Better together. AngelList partners with industry leaders.
+        </h3>
+
+        <div className="flex flex-wrap justify-center gap-8 sm:gap-10">
+          <img
+            src="https://picsum.photos/200/50"
+            alt="Brand Logo"
+            className="h-10 sm:h-12"
+          />
+          <img
+            src="https://picsum.photos/200/50"
+            alt="Brand Logo"
+            className="h-10 sm:h-12"
+          />
+          <img
+            src="https://picsum.photos/200/50"
+            alt="Brand Logo"
+            className="h-10 sm:h-12"
+          />
+          <img
+            src="https://picsum.photos/200/50"
+            alt="Brand Logo"
+            className="h-10 sm:h-12"
+          />
+          <img
+            src="https://picsum.photos/200/50"
+            alt="Brand Logo"
+            className="h-10 sm:h-12"
+          />
+        </div>
       </div>
     </div>
   );
