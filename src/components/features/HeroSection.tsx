@@ -10,7 +10,7 @@ const investmentOptions = [
     id: 1,
     title: 'Venture Funds',
     imageUrl: 'https://picsum.photos/id/123/300/400',
-    link: '#venture-funds',
+    link: '/venture-funds',
   },
   {
     id: 2,

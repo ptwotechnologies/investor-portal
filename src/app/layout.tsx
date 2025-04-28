@@ -6,7 +6,12 @@ import Footer from '@/components/layout/Footer';
 import Loader from '@/components/ui/Loader';
 import { Suspense } from 'react';
 
-const inter = Inter({ subsets: ['latin'] });
+// Import Inter font
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap', // Improves performance and avoids layout shift
+  weight: ['400', '500', '600', '700'], // Optional: specify font weights
+});
 
 export const metadata: Metadata = {
   title: 'Investor Portal | Connecting Startups and Investors',

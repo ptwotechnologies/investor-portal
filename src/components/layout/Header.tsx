@@ -96,7 +96,7 @@ export default function Header() {
 
         {/* Centered desktop navigation */}
         <div className="hidden flex-1 lg:flex lg:justify-center">
-          <div className="flex items-center px-8 py-2 rounded-full bg-primary-950">
+          <div className="flex items-center py-1 rounded-full bg-primary-950">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -109,10 +109,10 @@ export default function Header() {
                     <DropdownMenuTrigger asChild>
                       <Link
                         href={item.href}
-                        className={`text-lg inline-flex items-center ${
-                          pathname === item.href
-                            ? 'text-white'
-                            : 'text-gray-300 hover:text-white'
+                        className={`text-lg inline-flex items-center rounded-full px-4 py-2 transition-colors duration-200 focus:outline-none ${
+                          openDropdown === item.name || pathname === item.href
+                            ? 'bg-primary-200 text-primary-950'
+                            : 'text-gray-300 hover:bg-primary-200 hover:text-primary-950'
                         }`}
                       >
                         {item.name}
@@ -151,10 +151,10 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`text-lg ${
+                    className={`text-lg focus:outline-none rounded-full px-4 py-2 transition-colors duration-200 ${
                       pathname === item.href
-                        ? 'text-white'
-                        : 'text-gray-300 hover:text-white'
+                        ? 'bg-primary-200 text-primary-950'
+                        : 'text-gray-300 hover:bg-primary-200 hover:text-primary-950'
                     }`}
                   >
                     {item.name}
