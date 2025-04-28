@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}', // App directory (if using App Router)
-    './pages/**/*.{js,ts,jsx,tsx}', // Pages directory (if using Pages Router)
-    './components/**/*.{js,ts,jsx,tsx}', // Components
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
-        brand: {
+        primary: {
           50: '#F8F5FB',
           100: '#F0E8F7',
           200: '#DED0EF',

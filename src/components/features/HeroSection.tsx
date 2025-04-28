@@ -9,38 +9,38 @@ const investmentOptions = [
   {
     id: 1,
     title: 'Venture Funds',
-    imageUrl: 'https://picsum.photos/300/400',
+    imageUrl: 'https://picsum.photos/id/123/300/400',
     link: '#venture-funds',
   },
   {
     id: 2,
     title: 'SPVs',
-    imageUrl: 'https://picsum.photos/300/400',
+    imageUrl: 'https://picsum.photos/id/124/300/400',
     link: '#spvs',
   },
   {
     id: 3,
     title: 'Scout Funds',
-    imageUrl: 'https://picsum.photos/300/400',
+    imageUrl: 'https://picsum.photos/id/125/300/400',
     link: '#scout-funds',
   },
   {
     id: 4,
     title: 'Digital Subscriptions',
-    imageUrl: 'https://picsum.photos/300/400',
+    imageUrl: 'https://picsum.photos/id/126/300/400',
     link: '#digital-subscriptions',
   },
 ];
 
 export default function HeroSection() {
   return (
-    <div className="relative bg-[#23003C] min-h-screen pt-14 pb-16 text-white">
+    <div className="relative bg-primary-950 min-h-screen pt-14 pb-18 text-white">
       {/* Top button */}
       <div className="flex justify-center mb-20">
-        <button className="flex items-center bg-opacity-20 bg-purple-100 text-purple-950 rounded-full px-6 py-2">
+        <button className="flex items-center px-6 py-2 bg-purple-100 rounded-full bg-opacity-20 text-purple-950">
           Explore our Recent Products
           <svg
-            className="ml-2 w-4 h-4"
+            className="w-4 h-4 ml-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -57,11 +57,11 @@ export default function HeroSection() {
       </div>
 
       {/* Main heading */}
-      <div className="text-center px-4">
-        <h1 className="text-5xl font-light md:text-6xl lg:text-7xl max-w-4xl mx-auto">
+      <div className="px-4 text-center">
+        <h1 className="max-w-4xl mx-auto text-5xl font-light md:text-6xl lg:text-7xl">
           Built to scale all private funds & Public funds
         </h1>
-        <p className="mt-8 text-xl max-w-2xl mx-auto">
+        <p className="max-w-2xl mx-auto mt-8 text-xl">
           AngelList provides investors and innovators with the tools to grow.
         </p>
       </div>
@@ -72,13 +72,13 @@ export default function HeroSection() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20 px-6">
+      <div className="grid grid-cols-1 gap-6 px-6 mt-20 md:grid-cols-2 lg:grid-cols-4">
         {investmentOptions.map((option) => {
           const [loaded, setLoaded] = useState(false);
           return (
             <div
               key={option.id}
-              className="flex flex-col bg-brand-950 bg-opacity-30 rounded-lg overflow-hidden border-b-2"
+              className="flex flex-col overflow-hidden border-b-2 rounded-lg bg-brand-950 bg-opacity-30"
             >
               <div className="relative h-96">
                 {!loaded && (
@@ -92,12 +92,12 @@ export default function HeroSection() {
                     loaded ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-end p-4">
+                <div className="flex absolute inset-0 flex-col items-center justify-end p-4">
                   <Link href={option.link} className="w-fit">
-                    <span className="inline-flex items-center justify-center rounded-full border border-white bg-white/10 text-white px-4 py-2 text-sm font-medium backdrop-blur-sm transition-all hover:bg-white/20">
+                    <span className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white transition-all border border-white rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20">
                       View
                       <svg
-                        className="ml-2 w-4 h-4"
+                        className="w-4 h-4 ml-2"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -124,8 +124,8 @@ export default function HeroSection() {
         })}
       </div>
       {/* Brands  */}
-      <div className="mt-20 text-center px-4">
-        <h3 className="text-2xl sm:text-3xl mb-8 font-light leading-8 text-white">
+      <div className="px-4 mt-20 text-center">
+        <h3 className="mb-8 text-2xl font-light leading-8 text-white sm:text-3xl">
           Better together. AngelList partners with industry leaders.
         </h3>
 
