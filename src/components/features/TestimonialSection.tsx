@@ -142,7 +142,7 @@ const TestimonialSection: React.FC = () => {
           >
             <div className="flex flex-col md:flex-row items-center">
               <div className="flex flex-col items-center mb-6 md:mb-0 md:mr-8">
-                <div className="w-24 h-24 md:w-32 md:h-32 relative rounded-full overflow-hidden">
+                <div className="w-18 h-18 md:w-32 md:h-32 relative rounded-full overflow-hidden">
                   <Image
                     src={testimonial.imageUrl}
                     alt={testimonial.name}

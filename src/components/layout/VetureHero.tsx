@@ -12,8 +12,8 @@ function VentureHero() {
           <h1 className="text-7xl text-primary-800 mb-4">Venture Funds</h1>
           <p className="text-gray-800 text-lg mb-6">
             Raise capital, close deals, and manage your portfolio — all from a
-            single platform. AngelList handles all overhead and back-office
-            services, so you can focus on your deals.
+            single platform. Investor Portal handles all overhead and
+            back-office services, so you can focus on your deals.
           </p>
           <Button
             size={'lg'}

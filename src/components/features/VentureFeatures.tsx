@@ -32,8 +32,8 @@ const VentureFeatures = () => {
                 </h3>
               </div>
               <p className="text-gray-600">
-                AngelList provides a streamlined platform for everything you
-                need to run your fund.
+                Investor Poratl provides a streamlined platform for everything
+                you need to run your fund.
               </p>
             </div>
           </div>

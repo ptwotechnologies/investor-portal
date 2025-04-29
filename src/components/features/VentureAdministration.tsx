@@ -30,7 +30,7 @@ const VentureAdministration = () => {
   const cardData = [
     {
       id: 1,
-      title: 'AngelList Platform Capital',
+      title: 'Investor Poratl Platform Capital',
       description:
         'Raise funds from professional investors easily. Our platform simplifies the process for quick capital raising.',
       imageId: 237,
@@ -40,7 +40,7 @@ const VentureAdministration = () => {
       id: 2,
       title: 'Seamless closes',
       description:
-        'Investors close into your SPV electronically. AngelList takes care of fund formation docs and wires too.',
+        'Investors close into your SPV electronically. Investor Poratl takes care of fund formation docs and wires too.',
       imageId: 238,
       delay: 0.2,
     },

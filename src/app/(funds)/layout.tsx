@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+
 import { Suspense } from 'react';
 import Loader from '@/components/ui/Loader';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import VentureFooter from '@/components/layout/VentureFooter';
 
 // Import Inter font
 const inter = Inter({
@@ -33,7 +34,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default function FundsLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -42,7 +43,9 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body>
         <Suspense fallback={<Loader />}>
+          <Header />
           <main>{children}</main>
+          <VentureFooter />
         </Suspense>
       </body>
     </html>

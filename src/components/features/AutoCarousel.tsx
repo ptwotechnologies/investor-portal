@@ -15,7 +15,7 @@ const carouselData: CarouselItem[] = [
   {
     title: 'Full Service Fund Management',
     description:
-      "AngelList's full service offerings provides access to 50+ services that remove friction from fund management for venture funds, rolling funds, and syndicates.",
+      "Investor Poratl's full service offerings provides access to 50+ services that remove friction from fund management for venture funds, rolling funds, and syndicates.",
     ctaText: 'Explore our fund & syndicate offerings',
     ctaLink: '#',
     imageUrl: 'https://picsum.photos/600/400',
@@ -85,7 +85,7 @@ export default function AutoCarousel() {
   };
 
   return (
-    <div className="relative w-full  overflow-hidden bg-amber-50 p-6 rounded-lg">
+    <div className="relative w-full overflow-hidden bg-amber-50 p-6 rounded-lg">
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -93,7 +93,7 @@ export default function AutoCarousel() {
         {carouselData.map((slide, index) => (
           <div
             key={index}
-            className="min-w-full flex flex-col md:flex-row items-center justify-between gap-8 p-8"
+            className="flex min-w-full flex-col md:flex-row items-center justify-between gap-8 p-8"
           >
             <div className="md:w-1/2 space-y-4">
               <h2 className="text-2xl md:text-3xl font-semibold text-stone-800">
@@ -107,7 +107,7 @@ export default function AutoCarousel() {
                 {slide.ctaText}
               </a>
             </div>
-            <div className="md:w-1/2 flex justify-end">
+            <div className="flex md:w-1/2 justify-end">
               <div className="relative w-full md:w-auto h-48 md:h-64">
                 <img
                   src={slide.imageUrl}
@@ -121,7 +121,7 @@ export default function AutoCarousel() {
       </div>
 
       {/* Navigation dots */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="flex absolute bottom-4 left-1/2 transform -translate-x-1/2 space-x-2">
         {carouselData.map((_, index) => (
           <button
             key={index}

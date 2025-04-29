@@ -10,9 +10,9 @@ const StatsSection = () => {
           </h2>
           <p className="text-sm md:text-base text-primary-950">
             With more than half of all top-tier VC deals run through the
-            platform, AngelList is at the heart of venture investing. This
-            exposure gives AngelList the insight to identify gaps in the VC
-            market and build the solutions that bridge them.
+            platform, Investor Poratl is at the heart of venture investing. This
+            exposure gives Investor Poratl the insight to identify gaps in the
+            VC market and build the solutions that bridge them.
           </p>
         </div>
 

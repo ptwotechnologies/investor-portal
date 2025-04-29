@@ -14,21 +14,21 @@ const investmentOptions = [
   },
   {
     id: 2,
-    title: 'SPVs',
+    title: 'Rolling Funds',
     imageUrl: 'https://picsum.photos/id/124/300/400',
-    link: '#spvs',
+    link: '/rolling-funds',
   },
   {
     id: 3,
     title: 'Scout Funds',
     imageUrl: 'https://picsum.photos/id/125/300/400',
-    link: '#scout-funds',
+    link: '/scout-funds',
   },
   {
     id: 4,
-    title: 'Digital Subscriptions',
+    title: 'Syndicates',
     imageUrl: 'https://picsum.photos/id/126/300/400',
-    link: '#digital-subscriptions',
+    link: '/syndicates',
   },
 ];
 
@@ -62,7 +62,8 @@ export default function HeroSection() {
           Built to scale all private funds & Public funds
         </h1>
         <p className="max-w-2xl mx-auto mt-8 text-xl">
-          AngelList provides investors and innovators with the tools to grow.
+          Investor Poratl provides investors and innovators with the tools to
+          grow.
         </p>
       </div>
 
@@ -126,7 +127,7 @@ export default function HeroSection() {
       {/* Brands  */}
       <div className="px-4 mt-20 text-center">
         <h3 className="mb-8 text-2xl font-light leading-8 text-white sm:text-3xl">
-          Better together. AngelList partners with industry leaders.
+          Better together. Investor Poratl partners with industry leaders.
         </h3>
 
         <div className="flex flex-wrap justify-center gap-8 sm:gap-10">

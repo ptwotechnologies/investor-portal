@@ -10,7 +10,7 @@ function VentureStats() {
     },
     {
       value: '~108',
-      label: 'Unicorns invested into via AngelList',
+      label: 'Unicorns invested into via Investor Poratl',
     },
     {
       value: '$17B+',

@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="space-y-8 xl:col-span-2">
             <Link href="/">
-              <span className="text-2xl font-bold">AngelList</span>
+              <span className="text-2xl font-bold">Investor Portal</span>
             </Link>
             <p className="text-sm leading-6 text-gray-300">
               Connecting startups with investors and talent. The platform built
@@ -84,7 +84,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-3 xl:mt-0">
+          <div className="grid mt-16 grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-3 xl:mt-0">
             <div>
               <h3 className="text-sm font-semibold leading-6 text-white">
                 Platform
@@ -157,7 +157,7 @@ export default function Footer() {
         </div>
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
           <p className="text-xs leading-5 text-gray-400">
-            &copy; {new Date().getFullYear()} AngelList Clone. All rights
+            &copy; {new Date().getFullYear()} Investor Portal Clone. All rights
             reserved.
           </p>
         </div>
