@@ -7,7 +7,7 @@ const ContactHeader = () => {
       <h1 className="text-4xl font-extralight mb-12">Contact our sales team</h1>
       <p className="mb-3 font-extralight text-gray-800 text-sm">
         Fill out the form and a member of our team will reach out to you to
-        discuss AngelList's software offerings for firms.
+        discuss AngelList&apos;s software offerings for firms.
       </p>
       <p className="text-sm font-extralight text-gray-800">
         Looking for tools for startups?{' '}

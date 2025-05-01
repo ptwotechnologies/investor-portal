@@ -41,7 +41,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled] = useState(false);
 
   //  for tracking hover state for each dropdown
   const dropdownContainerRefs = useRef<Map<string, HTMLDivElement>>(new Map());

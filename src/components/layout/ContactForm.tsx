@@ -152,8 +152,8 @@ const ContactForm = () => {
 
           <p className="text-xs text-center text-gray-500 px-6">
             Please note that this is not an application to seek funding or other
-            services for a new venture or business. By clicking "Contact sales"
-            you agree to AngelList's{' '}
+            services for a new venture or business. By clicking &quot;Contact
+            sales&quot; you agree to AngelList&apos;s{' '}
             <Link
               href="#"
               className="underline text-gray-500 hover:text-gray-700"

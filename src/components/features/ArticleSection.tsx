@@ -1,5 +1,6 @@
-import React from 'react';
+'use client';
 
+import React from 'react';
 import {
   Card,
   CardContent,
@@ -50,18 +51,18 @@ const LatestArticles: React.FC = () => {
       title: 'The State of U.S. Early-Stage Venture & Startups: 2025',
       author: 'PTWO',
       date: 'April 1, 2025',
-      imageUrl: 'https://picsum.photos/id/182/800/600',
+      imageUrl: 'https://picsum.photos/id/183/800/600',
     },
   ];
 
   return (
-    <section className="w-full px-12 py-12 mx-auto lg-p-12 bg-primary-50">
+    <section className="w-full px-12 py-12 mx-auto bg-primary-50">
       <div className="mb-2 text-sm font-medium text-primary-600">Resources</div>
       <h2 className="mb-8 text-3xl font-bold md:text-4xl text-primary-950">
         Latest articles
       </h2>
 
-      <div className="grid grid-cols-1 gap-8 w-fit md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {articles.map((article) => (
           <Card
             key={article.id}
@@ -72,7 +73,8 @@ const LatestArticles: React.FC = () => {
               <Image
                 src={article.imageUrl}
                 alt={article.title}
-                className="object-cover w-full h-full"
+                fill
+                className="object-cover"
               />
             </div>
             <CardHeader>

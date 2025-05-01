@@ -3,10 +3,8 @@ import React from 'react';
 import {
   Card,
   CardHeader,
-  CardFooter,
   CardTitle,
   CardDescription,
-  CardContent,
 } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
@@ -67,7 +65,7 @@ const VentureAdministration = () => {
             Full-service fund administration
           </h2>
           <p className="text-gray-600 text-lg">
-            You deal with your deals. We'll deal with the rest.
+            You deal with your deals. We&apos;ll deal with the rest.
           </p>
         </motion.div>
 

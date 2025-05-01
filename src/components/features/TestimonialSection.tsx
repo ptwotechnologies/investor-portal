@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
@@ -64,7 +64,8 @@ const TestimonialSection: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const goToNext = () => {
+  // Use useCallback to memoize functions
+  const goToNext = useCallback(() => {
     if (isAnimating) return;
 
     setIsAnimating(true);
@@ -73,9 +74,9 @@ const TestimonialSection: React.FC = () => {
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
-  };
+  }, [isAnimating, testimonials.length]);
 
-  const goToPrev = () => {
+  const goToPrev = useCallback(() => {
     if (isAnimating) return;
 
     setIsAnimating(true);
@@ -86,36 +87,47 @@ const TestimonialSection: React.FC = () => {
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
-  };
+  }, [isAnimating, testimonials.length]);
 
-  // Auto-scroll effect
+  // Handle navigation to specific slide
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (isAnimating) return;
+
+      setIsAnimating(true);
+      setCurrentIndex(index);
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 500);
+    },
+    [isAnimating]
+  );
+
+  // Pause auto-scroll on hover
+  const handleMouseEnter = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (!timerRef.current) {
+      timerRef.current = setInterval(goToNext, 5000);
+    }
+  }, [goToNext]);
+
+  // Auto-scroll effect with proper dependencies
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      goToNext();
-    }, 5000);
+    timerRef.current = setInterval(goToNext, 5000);
 
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
       }
     };
-  }, []);
-
-  // Pause auto-scroll on hover
-  const handleMouseEnter = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!timerRef.current) {
-      timerRef.current = setInterval(() => {
-        goToNext();
-      }, 5000);
-    }
-  };
+  }, [goToNext]);
 
   return (
     <div
@@ -135,7 +147,7 @@ const TestimonialSection: React.FC = () => {
       <div className="max-w-4xl mx-auto relative">
         {testimonials.map((testimonial, index) => (
           <div
-            key={index}
+            key={`testimonial-${index}`}
             className={`bg-white rounded-lg shadow-md p-6 md:p-8 transition-opacity duration-500 ${
               index === currentIndex ? 'opacity-100 block' : 'opacity-0 hidden'
             }`}
@@ -145,8 +157,9 @@ const TestimonialSection: React.FC = () => {
                 <div className="w-18 h-18 md:w-32 md:h-32 relative rounded-full overflow-hidden">
                   <Image
                     src={testimonial.imageUrl}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name}'s photo`}
                     fill
+                    sizes="(max-width: 768px) 72px, 128px"
                     className="object-cover"
                   />
                 </div>
@@ -158,24 +171,26 @@ const TestimonialSection: React.FC = () => {
                 <div className="flex space-x-2 mt-2">
                   {testimonial.socialLinks.twitter && (
                     <span className="text-primary-500 cursor-pointer hover:text-primary-700">
-                      <FaTwitter size={16} />
+                      <FaTwitter size={16} aria-label="Twitter profile" />
                     </span>
                   )}
                   {testimonial.socialLinks.facebook && (
                     <span className="text-primary-500 cursor-pointer hover:text-primary-700">
-                      <FaFacebook size={16} />
+                      <FaFacebook size={16} aria-label="Facebook profile" />
                     </span>
                   )}
                   {testimonial.socialLinks.instagram && (
                     <span className="text-primary-500 cursor-pointer hover:text-primary-700">
-                      <FaInstagram size={16} />
+                      <FaInstagram size={16} aria-label="Instagram profile" />
                     </span>
                   )}
                 </div>
               </div>
 
               <div className="flex-1">
-                <div className="text-primary-500 text-4xl font-serif">"</div>
+                <div className="text-primary-500 text-4xl font-serif">
+                  &ldquo;
+                </div>
                 <h4 className="text-xl font-bold text-primary-800 mb-2">
                   {testimonial.quote}
                 </h4>
@@ -193,6 +208,7 @@ const TestimonialSection: React.FC = () => {
             onClick={goToPrev}
             className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition-all duration-300"
             aria-label="Previous testimonial"
+            type="button"
           >
             <ChevronLeft size={20} />
           </button>
@@ -201,6 +217,7 @@ const TestimonialSection: React.FC = () => {
             onClick={goToNext}
             className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-100 text-primary-600 hover:bg-primary-200 transition-all duration-300"
             aria-label="Next testimonial"
+            type="button"
           >
             <ChevronRight size={20} />
           </button>
@@ -211,20 +228,14 @@ const TestimonialSection: React.FC = () => {
       <div className="flex justify-center mt-6 space-x-2">
         {testimonials.map((_, index) => (
           <button
-            key={index}
-            onClick={() => {
-              if (!isAnimating) {
-                setIsAnimating(true);
-                setCurrentIndex(index);
-                setTimeout(() => {
-                  setIsAnimating(false);
-                }, 500);
-              }
-            }}
+            key={`indicator-${index}`}
+            onClick={() => goToSlide(index)}
+            type="button"
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex ? 'bg-primary-600 w-6' : 'bg-primary-300'
             }`}
             aria-label={`Go to testimonial ${index + 1}`}
+            aria-current={index === currentIndex ? 'true' : 'false'}
           />
         ))}
       </div>
