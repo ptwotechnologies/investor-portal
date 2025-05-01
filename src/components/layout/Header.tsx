@@ -1,18 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
 import { Button } from '../ui/Button';
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from '../ui/DropdownMenu';
 
-// Updated navigation with dropdown items
 const navigation = [
   {
     name: 'Products',
@@ -38,6 +31,10 @@ const navigation = [
       { name: 'Success Stories', href: '/resources/stories' },
     ],
   },
+  {
+    name: 'Contact',
+    href: '/contact-sales',
+  },
 ];
 
 export default function Header() {
@@ -46,17 +43,24 @@ export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // For managing hover state
-  const handleMouseEnter = (itemName: string) => {
-    setOpenDropdown(itemName);
-  };
+  //  for tracking hover state for each dropdown
+  const dropdownContainerRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  const handleMouseLeave = () => {
-    setOpenDropdown(null);
-  };
+  //  managing hover state with a direct approach
+  /*  const handleDropdownHover = (itemName: string, isHovering: boolean) => {
+    if (isHovering) {
+      setOpenDropdown(itemName);
+    } else {
+      // Only close if we're not hovering the dropdown container
+      const container = dropdownContainerRefs.current.get(itemName);
+      if (container && !container.matches(':hover')) {
+        setOpenDropdown(null);
+      }
+    }
+  }; */
 
   // Add scroll listener to adjust navbar on scroll
-  useEffect(() => {
+  /*   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true);
@@ -69,7 +73,7 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []); */
 
   // Handle mobile menu animation
   useEffect(() => {
@@ -101,53 +105,68 @@ export default function Header() {
               <div
                 key={item.name}
                 className="relative mx-4"
-                onMouseEnter={() => handleMouseEnter(item.name)}
-                onMouseLeave={handleMouseLeave}
+                ref={(el) => {
+                  if (el) dropdownContainerRefs.current.set(item.name, el);
+                }}
               >
                 {item.dropdown ? (
-                  <DropdownMenu open={openDropdown === item.name}>
-                    <DropdownMenuTrigger asChild>
-                      <Link
-                        href={item.href}
-                        className={`text-lg inline-flex items-center rounded-full px-4 py-2 transition-colors duration-200 focus:outline-none ${
-                          openDropdown === item.name || pathname === item.href
-                            ? 'bg-primary-200 text-primary-950'
-                            : 'text-gray-300 hover:bg-primary-200 hover:text-primary-950'
-                        }`}
-                      >
-                        {item.name}
-                        <svg
-                          className="w-4 h-4 ml-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="2"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </Link>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      className="bg-primary-950 text-white border-primary-800 min-w-[220px] mt-2"
-                      sideOffset={0}
-                      onMouseLeave={() => setOpenDropdown(null)}
+                  <div
+                    className="group"
+                    onMouseEnter={() => setOpenDropdown(item.name)}
+                    onMouseLeave={() => {
+                      setTimeout(() => {
+                        const container = dropdownContainerRefs.current.get(
+                          item.name
+                        );
+                        if (container && !container.matches(':hover')) {
+                          setOpenDropdown(null);
+                        }
+                      }, 50);
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`text-lg inline-flex items-center rounded-full px-4 py-2 transition-colors duration-200 focus:outline-none ${
+                        openDropdown === item.name || pathname === item.href
+                          ? 'bg-primary-200 text-primary-950'
+                          : 'text-gray-300 hover:bg-primary-200 hover:text-primary-950'
+                      }`}
                     >
-                      {item.dropdown.map((subItem) => (
-                        <DropdownMenuItem key={subItem.name} asChild>
-                          <Link
-                            href={subItem.href}
-                            className="px-4 py-2 hover:bg-purple-800 focus:bg-purple-800 focus:text-white"
-                          >
-                            {subItem.name}
-                          </Link>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                      {item.name}
+                      <svg
+                        className="w-4 h-4 ml-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+
+                    {/* Dropdown menu with animations */}
+                    {openDropdown === item.name && (
+                      <div className="absolute left-0 z-10 mt-2 min-w-[220px] box-forming">
+                        <div className="py-2 bg-primary-950 rounded-md shadow-lg border border-primary-800">
+                          <div className="dropdown-content-fade">
+                            {item.dropdown.map((subItem) => (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-2 text-white hover:bg-primary-800 focus:bg-primary-800 focus:text-white"
+                              >
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ) : (
                   <Link
                     href={item.href}
@@ -167,12 +186,12 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:justify-end lg:flex-1">
           <div className="flex space-x-4">
-            <Button variant={'white'}>
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button variant={'default'}>
-              <Link href="/signup">Sign Up</Link>
-            </Button>
+            <Link href="/signin">
+              <Button variant={'white'}>Login </Button>
+            </Link>
+            <Link href="/signup">
+              <Button variant={'default'}>Sign Up </Button>
+            </Link>
           </div>
         </div>
 
@@ -269,7 +288,7 @@ export default function Header() {
               ))}
             </div>
             <div className="mt-8 space-y-4">
-              <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/signin" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="white" className="w-full mt-2">
                   Login
                 </Button>

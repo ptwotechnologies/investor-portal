@@ -15,13 +15,11 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<Loader />}>
-        <Header />
         <HeroSection />
         <AutoCarousel />
         <StatsSection />
         <ArticleSection />
         <TestimonialSection />
-        <Footer />
       </Suspense>
     </>
   );
