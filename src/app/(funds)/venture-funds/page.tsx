@@ -7,7 +7,6 @@ import VentureFundManager from '@/components/features/VentureFundManager';
 import VentureStats from '@/components/features/VentureStats';
 import VentureHero from '@/components/layout/VetureHero';
 import type { Metadata, Viewport } from 'next';
-import VentureFooter from '@/components/layout/VentureFooter';
 
 // Fixed metadata format for Next.js 15
 export const metadata: Metadata = {

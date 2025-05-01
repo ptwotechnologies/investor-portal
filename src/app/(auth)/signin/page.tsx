@@ -126,7 +126,7 @@ const SignIn: React.FC = async () => {
         </CardContent>
         <CardFooter className="text-center justify-center">
           <p className="text-primary-800 text-sm">
-            Don't have an account?{' '}
+            Don&apos;t miss this offer!{' '}
             <Link href="/signup" className="underline">
               Signup
             </Link>

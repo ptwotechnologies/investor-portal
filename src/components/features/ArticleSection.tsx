@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+
 import {
   Card,
   CardContent,
@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/Card';
+import Image from 'next/image';
 
 interface ArticleProps {
   id: number;
@@ -68,7 +69,7 @@ const LatestArticles: React.FC = () => {
             className="flex flex-col h-full"
           >
             <div className="relative w-full h-48 overflow-hidden">
-              <img
+              <Image
                 src={article.imageUrl}
                 alt={article.title}
                 className="object-cover w-full h-full"

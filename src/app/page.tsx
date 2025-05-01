@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { Suspense } from 'react';
 
 import HeroSection from '@/components/features/HeroSection';
@@ -8,8 +6,6 @@ import Loader from '@/components/ui/Loader';
 import StatsSection from '@/components/features/StatsSection';
 import ArticleSection from '@/components/features/ArticleSection';
 import TestimonialSection from '@/components/features/TestimonialSection';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
