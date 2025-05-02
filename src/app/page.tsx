@@ -6,6 +6,7 @@ import Loader from '@/components/ui/Loader';
 import StatsSection from '@/components/features/StatsSection';
 import ArticleSection from '@/components/features/ArticleSection';
 import TestimonialSection from '@/components/features/TestimonialSection';
+import LeadingInvestors from '@/components/features/LeadingInvestors';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <StatsSection />
         <ArticleSection />
         <TestimonialSection />
+        <LeadingInvestors />
       </Suspense>
     </>
   );

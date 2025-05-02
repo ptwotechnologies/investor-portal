@@ -151,8 +151,8 @@ export default function HeroSection() {
               key={idx}
               src="https://picsum.photos/200/50"
               alt={`Brand Logo ${idx + 1}`}
-              width={200} // Add width here
-              height={50} // Add height here
+              width={200}
+              height={50}
               className="h-10 sm:h-12"
             />
           ))}

@@ -3,7 +3,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'placekitten.com', 'picsum.photos', 'placehold.co'], // Example  placeholder images
+    domains: ['localhost', 'picsum.photos', 'placehold.co'], // Example  placeholder images
     formats: ['image/avif', 'image/webp'],
   },
   swcMinify: true,
