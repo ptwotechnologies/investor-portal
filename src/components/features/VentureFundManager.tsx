@@ -1,6 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import Image from 'next/image'; // Import the Image component
 
 const VentureFundManager = () => {
   const containerRef = useRef(null);
@@ -21,9 +22,12 @@ const VentureFundManager = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="flex flex-col items-center">
-              <img
+              {/* Replaced <img> with <Image> */}
+              <Image
                 src="https://picsum.photos/200"
                 alt="Fund Manager"
+                width={128} // Required prop: intrinsic width of the image
+                height={128} // Required prop: intrinsic height of the image
                 className="w-32 h-32 rounded-full mb-4 border-4 border-white"
               />
               <p className="text-white text-xl font-semibold">You</p>
@@ -88,7 +92,10 @@ const VentureFundManager = () => {
                   key={index}
                   className="flex items-center"
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  // Ensure a fallback animation for when not in view
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
                   transition={{
                     duration: 0.3,
                     delay: isInView ? 0.8 + index * 0.1 : 0,
@@ -122,7 +129,7 @@ const VentureFundManager = () => {
       <motion.div
         className="w-full md:w-2/5 p-8 md:p-16"
         initial={{ opacity: 0, x: 30 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        animate={isInView ? { opacity: 1, x: 0 } : {}} // Ensure a fallback animation
         transition={{ duration: 0.8, delay: 0.4 }}
       >
         <h2 className="text-4xl font-bold text-primary-800 mb-6">

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion'; // Import easeOut
 import {
   Card,
   CardHeader,
@@ -19,7 +19,7 @@ const fadeInUp = {
     transition: {
       delay: i * 0.2,
       duration: 0.6,
-      ease: 'easeOut',
+      ease: easeOut, // Changed from string 'easeOut' to the imported function
     },
   }),
 };
