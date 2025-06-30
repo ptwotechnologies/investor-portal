@@ -1,5 +1,14 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poopins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -12,10 +21,11 @@
   --color-primary-500: #8e62c2;
   --color-primary-600: #6e409e;
   --color-primary-700: #542f80;
-  --color-primary-800: #39194f;
+  --color-primary-800: #011540;
   --color-primary-900: #2c0c45;
-  --color-primary-950: #23003c;
+  --color-primary-950: #001032;
   --color-secondary: #6e5c3b;
+  --color-angel-light-blue: #80b3ff;
 }
 
 @theme inline {
@@ -56,46 +66,6 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@keyframes growBox {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes contentAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.box-forming {
-  animation: growBox 0.25s ease-out forwards;
-}
-
-.dropdown-content-fade {
-  animation: contentAppear 0.25s ease-out forwards;
-  animation-delay: 0.1s;
-  opacity: 0;
 }
 
 :root {
@@ -174,4 +144,43 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes growBox {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes contentAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.box-forming {
+  animation: growBox 0.25s ease-out forwards;
+}
+
+.dropdown-content-fade {
+  animation: contentAppear 0.25s ease-out forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #6d8d7f 0%, #fface0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
 }

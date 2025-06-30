@@ -23,84 +23,84 @@ const LatestArticles: React.FC = () => {
   const articles: ArticleProps[] = [
     {
       id: 1,
-      category: 'Invest',
-      title: 'The State of U.S. Early-Stage Venture & Startups: 2025',
+      category: 'Product News',
+      title: 'Empowering every fund with free data rooms',
       author: 'PTWO',
-      date: 'April 1, 2025',
-      imageUrl: 'https://picsum.photos/id/180/800/600',
+      date: 'MAY 18, 2025 - 3 MIN READ',
+      imageUrl: 'https://picsum.photos/id/180/400/250',
     },
     {
       id: 2,
-      category: 'Invest',
-      title: 'The State of U.S. Early-Stage Venture & Startups: 2025',
+      category: 'Product News',
+      title: 'Empowering every fund with free data rooms',
       author: 'PTWO',
-      date: 'April 1, 2025',
-      imageUrl: 'https://picsum.photos/id/181/800/600',
+      date: 'MAY 18, 2025 - 3 MIN READ',
+      imageUrl: 'https://picsum.photos/id/181/400/250',
     },
     {
       id: 3,
-      category: 'Invest',
-      title: 'The State of U.S. Early-Stage Venture & Startups: 2025',
+      category: 'Product News',
+      title: 'Empowering every fund with free data rooms',
       author: 'PTWO',
-      date: 'April 1, 2025',
-      imageUrl: 'https://picsum.photos/id/182/800/600',
+      date: 'MAY 18, 2025 - 3 MIN READ',
+      imageUrl: 'https://picsum.photos/id/182/400/250',
     },
     {
       id: 4,
-      category: 'Invest',
-      title: 'The State of U.S. Early-Stage Venture & Startups: 2025',
+      category: 'Product News',
+      title: 'Empowering every fund with free data rooms',
       author: 'PTWO',
-      date: 'April 1, 2025',
-      imageUrl: 'https://picsum.photos/id/183/800/600',
+      date: 'MAY 18, 2025 - 3 MIN READ',
+      imageUrl: 'https://picsum.photos/id/183/400/250',
     },
   ];
 
   return (
-    <section className="w-full px-12 py-12 mx-auto bg-primary-50">
-      <div className="mb-2 text-sm font-medium text-primary-600">Resources</div>
-      <h2 className="mb-8 text-3xl font-bold md:text-4xl text-primary-950">
-        Latest articles
-      </h2>
+    <section className="max-w-[1400px] m-auto py-16 md:py-24">
+      <div className="px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 text-left">
+          <p className="text-[#001032] text-lg mb-2">Resources</p>
+          <h2 className="text-4xl md:text-5xl font-light text-[#001032] leading-tight">
+            Latest <br />
+            articles
+          </h2>
+        </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {articles.map((article) => (
-          <Card
-            key={article.id}
-            hoverEffect={true}
-            className="flex flex-col h-full"
-          >
-            <div className="relative w-full h-48 overflow-hidden">
-              <Image
-                src={article.imageUrl}
-                alt={article.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <CardHeader>
-              <div className="mb-1 text-sm font-medium text-primary-500">
-                {article.category}
-              </div>
-              <CardTitle className="text-xl text-primary-950">
-                {article.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow"></CardContent>
-            <CardFooter className="pt-4 border-t border-primary-100">
-              <div className="flex items-center">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary-200">
-                  <span className="text-xs font-bold text-primary-700">
-                    {article.author.charAt(0)}
-                  </span>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm text-primary-700">{article.author}</p>
-                  <p className="text-xs text-primary-400">{article.date}</p>
-                </div>
-              </div>
-            </CardFooter>
-          </Card>
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {articles.map((article) => (
+            <Card
+              key={article.id}
+              className="shadow-none rounded-lg overflow-hidden border-none bg-white"
+            >
+              <CardHeader className="p-0">
+                {article.imageUrl ? (
+                  <div className="flex w-full h-48 bg-gray-200 items-center justify-center overflow-hidden rounded-t-lg">
+                    <Image
+                      src={article.imageUrl}
+                      alt={article.title}
+                      width={400}
+                      height={250}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full h-48 bg-gray-200 rounded-t-lg"></div>
+                )}
+              </CardHeader>
+              <CardContent className="p-4 pt-3">
+                <span className="inline-block bg-gray-200 text-[#3C1D3A] text-xs font-medium px-2.5 py-0.5 rounded mb-3">
+                  {article.category}
+                </span>
+                <CardTitle className="text-lg font-normal text-[#3C1D3A] leading-normal mb-2">
+                  {article.title}
+                </CardTitle>
+              </CardContent>
+              <CardFooter className="p-4 pt-0 text-[#3C1D3A] text-sm">
+                <p>{article.date}</p>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

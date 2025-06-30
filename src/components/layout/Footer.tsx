@@ -1,268 +1,280 @@
 import React from 'react';
-import Link from 'next/link';
-import { Facebook, Linkedin, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Get Started Column */}
+    <footer className="bg-[#E0E0E0] py-16 px-4 md:px-8 lg:px-12">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Navigation Links Section */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+          {/* Get started */}
           <div>
-            <h3 className="font-medium mb-4">Get started</h3>
-            <ul className="space-y-2">
+            <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+              Get started
+            </h4>
+            <ul className="space-y-3">
               <li>
-                <Link
-                  href="/sign-in"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
                   Sign in
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/contact-sales"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
                   Contact sales
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Fund Managers Column */}
+          {/* Fund Managers */}
           <div>
-            <h3 className="font-medium mb-4">Fund Managers</h3>
-            <ul className="space-y-2">
+            <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+              Fund Managers
+            </h4>
+            <ul className="space-y-3">
               <li>
-                <Link
-                  href="/rolling-funds"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Rolling Funds®
-                </Link>
+                  Rolling Funds
+                </a>
               </li>
               <li>
-                <Link
-                  href="/venture-funds"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
                   Venture Funds
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/syndicates"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Syndicates
-                </Link>
+                  SPVs
+                </a>
               </li>
               <li>
-                <Link
-                  href="/networked-investing"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Networked Investing
-                </Link>
+                  Networked banking
+                </a>
               </li>
               <li>
-                <Link
-                  href="/scout-funds"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
                   Scout Funds
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/angellist-vs-carta"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Angellist vs. Carta
-                </Link>
+                  AngelList vs. Carta
+                </a>
               </li>
               <li>
-                <Link
-                  href="/fin-beta"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
                   Fin (Beta)
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Pricing + Returns Column */}
+          {/* Pricing + Returns */}
           <div>
-            <h3 className="font-medium mb-4">Pricing + Returns</h3>
-            <ul className="space-y-2">
+            <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+              Pricing + Returns
+            </h4>
+            <ul className="space-y-3">
               <li>
-                <Link
-                  href="/pricing"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Pricing
-                </Link>
+                  Sign in
+                </a>
               </li>
               <li>
-                <Link
-                  href="/fund-cost-calculator"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  Fund Cost Calculator
-                </Link>
+                  Contact sales
+                </a>
               </li>
               <li>
-                <Link
-                  href="/vc-fund-performance-calculator"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  VC Fund Performance Calculator
-                </Link>
+                  SPVs
+                </a>
               </li>
               <li>
-                <Link
-                  href="/irr-calculator"
-                  className="text-gray-300 hover:text-white"
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  IRR Calculator
-                </Link>
+                  Networked banking
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Scout Funds
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Two merged columns: Startups + Investors and Resources */}
+          {/* Startup + Investors */}
           <div>
-            <div className="mb-8">
-              <h3 className="font-medium mb-4">Startups + Investors</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/roll-up-vehicles"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Roll Up Vehicles®
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/demo-day-funds"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Demo Day Funds
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+              Startup + Investors
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Sign in
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Contact sales
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  SPVs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Networked banking
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            <div>
-              <h3 className="font-medium mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/partnerships"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Partnerships
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-gray-300 hover:text-white">
-                    Blog
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/help-center"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/education-center"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Education Center
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/about-us"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    About us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/careers"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/form-crs"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    Form CRS
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+              Resources
+            </h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Rolling Funds
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Venture Funds
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  SPVs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Networked banking
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Scout Funds
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  AngelList vs. Carta
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[#3C1D3A] hover:text-gray-900 text-sm"
+                >
+                  Fin (Beta)
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-6">
-          {/* Legal Links */}
-          <div className="flex flex-wrap space-x-4 mb-4 md:mb-0">
-            <Link
-              href="/terms"
-              className="text-gray-300 hover:text-white text-sm"
-            >
-              Terms
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-gray-300 hover:text-white text-sm"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/disclosures"
-              className="text-gray-300 hover:text-white text-sm"
-            >
-              Disclosures
-            </Link>
-            <Link
-              href="/cookie-settings"
-              className="text-gray-300 hover:text-white text-sm"
-            >
-              Cookie Settings
-            </Link>
-            <span className="text-gray-300 text-sm">
-              © AL Advisors Management Inc.
-            </span>
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex space-x-4">
-            <Link href="#" className="text-gray-300 hover:text-white">
-              <Facebook size={20} />
-            </Link>
-            <Link href="#" className="text-gray-300 hover:text-white">
-              <Linkedin size={20} />
-            </Link>
-            <Link href="#" className="text-gray-300 hover:text-white">
-              <Twitter size={20} />
-            </Link>
-          </div>
+        {/* Disclaimer Section */}
+        <div>
+          <h4 className="font-semibold text-gray-800 mb-4 text-sm">
+            Disclaimer
+          </h4>
+          <p className="text-[#3C1D3A] text-xs leading-relaxed">
+            The information contained herein is provided for informational and
+            discussion purposes only and is not intended to be a recommendation
+            for any investment, service, product, or other advice of any kind,
+            and shall not constitute or imply an offer of any kind. Any
+            investment opportunities and/or products or services shown here will
+            only be completed pursuant to formal offering materials, a letter of
+            intent, and/or any other agreements as determined by Angellist
+            containing full details regarding risks, minimum investment, fees,
+            and expenses of each such transaction. The terms of any product,
+            service, or particular investment opportunity, including size,
+            costs, and other characteristics, are set forth in the applicable
+            constituent documents for such product, service or particular
+            investment opportunity and may differ materially from those
+            presented in this presentation. Such terms are subject to change
+            without notice. For more information on AngelList and its products
+            and services, please
+          </p>
         </div>
       </div>
     </footer>
