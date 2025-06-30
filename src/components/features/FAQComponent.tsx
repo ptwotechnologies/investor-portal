@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion'; // Import easeOut
 
 interface FAQItem {
   id: string;
@@ -22,7 +22,7 @@ const fadeInUp = {
     transition: {
       delay: i * 0.1,
       duration: 0.5,
-      ease: 'easeOut',
+      ease: easeOut, // Use the imported easeOut function
     },
   }),
 };
