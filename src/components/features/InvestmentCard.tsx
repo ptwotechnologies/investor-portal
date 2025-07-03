@@ -3,8 +3,9 @@ import Image from 'next/image';
 import { Skeleton } from '../ui/Skeleton';
 import { useState } from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
-// InvestmentCard component - Added individual borders and padding to each card
+// InvestmentCard component - Fixed blur background issue
 export default function InvestmentCard({
   title,
   description,
@@ -21,7 +22,7 @@ export default function InvestmentCard({
   return (
     // Wrapped entire card in Link component to make it clickable
     <Link href={link} className="block">
-      <div className="flex flex-col bg-transparent border-t border-b border-gray-700 py-6 cursor-pointer hover:bg-gray-900/20 transition-colors duration-200">
+      <div className="flex flex-col bg-transparent border-t border-b border-gray-700 py-6 cursor-pointer hover:bg-gray-900/20 transition-colors duration-200 group">
         {/* Card Title Section */}
         <h3 className="text-xl font-medium text-white mb-4">{title}</h3>
 
@@ -38,6 +39,14 @@ export default function InvestmentCard({
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
+
+          {/* Hover View Button - Fixed blur background */}
+          <div className="flex absolute inset-0 items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+            <div className="flex bg-black/30 backdrop-blur-md border border-white/30 rounded-full px-4 py-2 items-center gap-2 text-white font-medium text-sm shadow-lg">
+              <span>View</span>
+              <ArrowRight className="w-4 h-4" />
+            </div>
+          </div>
         </div>
 
         {/* Description Section */}

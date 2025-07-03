@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  AngelList vs. Carta
+                  Investor vs. Carta
                 </a>
               </li>
               <li>
@@ -237,7 +237,7 @@ const Footer: React.FC = () => {
                   href="#"
                   className="text-[#3C1D3A] hover:text-gray-900 text-sm"
                 >
-                  AngelList vs. Carta
+                  Investor vs. Carta
                 </a>
               </li>
               <li>
@@ -264,7 +264,7 @@ const Footer: React.FC = () => {
             and shall not constitute or imply an offer of any kind. Any
             investment opportunities and/or products or services shown here will
             only be completed pursuant to formal offering materials, a letter of
-            intent, and/or any other agreements as determined by Angellist
+            intent, and/or any other agreements as determined by Investor
             containing full details regarding risks, minimum investment, fees,
             and expenses of each such transaction. The terms of any product,
             service, or particular investment opportunity, including size,
@@ -272,7 +272,7 @@ const Footer: React.FC = () => {
             constituent documents for such product, service or particular
             investment opportunity and may differ materially from those
             presented in this presentation. Such terms are subject to change
-            without notice. For more information on AngelList and its products
+            without notice. For more information on Investor and its products
             and services, please
           </p>
         </div>

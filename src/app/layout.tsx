@@ -43,7 +43,9 @@ export default function RootLayout({
       <body>
         <Suspense fallback={<Loader />}>
           <Header />
-          <main>{children}</main>
+          <main>
+            <div className="w-full mx-auto">{children}</div>
+          </main>
           <Footer />
         </Suspense>
       </body>

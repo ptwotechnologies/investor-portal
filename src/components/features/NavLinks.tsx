@@ -63,7 +63,7 @@ export default function NavLinks({ navContainerRef }: NavLinksProps) {
     >
       {/* Sliding background */}
       <div
-        className="absolute top-1 bottom-1 bg-primary-200 rounded-full transition-all duration-300 ease-out pointer-events-none"
+        className="absolute top-1 bottom-1 bg-[#bdbbff] rounded-full transition-all duration-300 ease-out pointer-events-none"
         style={sliderStyle}
       />
 

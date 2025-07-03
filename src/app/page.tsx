@@ -1,24 +1,37 @@
 import { Suspense } from 'react';
 
 import HeroSection from '@/components/features/HeroSection';
-import FullServiceFundManagement from '@/components/features/FullServiceFundManagement';
 import Loader from '@/components/ui/Loader';
-import StatsSection from '@/components/features/StatsSection';
-import ArticleSection from '@/components/features/ArticleSection';
 import TestimonialSection from '@/components/features/TestimonialSection';
-import AngelListBigTextSection from '@/components/features/AngelListBigTextSection';
-// import LeadingInvestors from '@/components/features/LeadingInvestors';
+import VideoSection from '@/components/features/VideoSection';
+import FeaturesSection from '@/components/features/FeatureSection';
+import PortalSection from '@/components/features/PortalSection';
+import NoddingCTASection from '@/components/features/NoddingCTASection';
+import WhatMakesUsDifferent from '@/components/features/WhatMakesUsDifferent ';
+import FeaturesAccordion from '@/components/layout/FeaturesAccordion';
+import AccordionEnd from '@/components/features/AccordionEnd';
+import ConsultationsComponent from '@/components/layout/ConsultationsComponent';
+import ProfileSelectionComponent from '@/components/layout/ProfileSelectionComponent';
+import MondayReminder from '@/components/layout/MondayReminder';
+import FAQSection from '@/components/features/FAQComponent';
 
 export default function Home() {
   return (
     <>
       <Suspense fallback={<Loader />}>
         <HeroSection />
-        <FullServiceFundManagement />
-        <StatsSection />
+        <VideoSection />
+        <FeaturesSection />
+        <PortalSection />
+        <NoddingCTASection />
+        <WhatMakesUsDifferent />
+        <FeaturesAccordion />
+        <AccordionEnd />
+        <ConsultationsComponent />
         <TestimonialSection />
-        <ArticleSection />
-        <AngelListBigTextSection />
+        <ProfileSelectionComponent />
+        <MondayReminder />
+        <FAQSection />
       </Suspense>
     </>
   );
