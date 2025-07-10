@@ -31,6 +31,9 @@ body {
   --color-primary-950: #001032;
   --color-secondary: #6e5c3b;
   --color-angel-light-blue: #80b3ff;
+
+  /*  Custom breakpoint for 425px */
+  --breakpoint-xs: 26.5625rem;
 }
 
 @theme inline {

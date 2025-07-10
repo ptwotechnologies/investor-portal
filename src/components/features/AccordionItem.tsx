@@ -21,39 +21,36 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   item,
   isOpen,
   onClick,
-
   isLast,
 }) => {
   return (
     <>
       <motion.div
         className={`
-         max-sm:bg-[#678679] text-gray-800  overflow-hidden
-          ${!isOpen ? 'rounded-full' : 'rounded-lg'}
-          [&]:md:rounded-none
+           text-gray-800 overflow-hidden
         `}
         initial={false}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
+        {/* Title Container - Rounded */}
         <motion.div
-          className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+          className="flex justify-between items-center p-4 cursor-pointer bg-[#628173] rounded-full transition-colors duration-200"
           onClick={() => onClick(item.id)}
-          whileHover={{ backgroundColor: 'rgba(249, 250, 251, 0.1)' }}
+          whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
           whileTap={{ scale: 0.98 }}
         >
-          <h3
-            className={`sm:text-xl font-bold md:text-xl lg:text-2xl ${isOpen ? 'text-primary-950' : 'text-white'}`}
-          >
+          <h3 className="sm:text-xl font-bold md:text-lg lg:text-2xl text-white">
             {item.title}
           </h3>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <ChevronDown className="w-5 h-5 text-gray-900" />
+            <ChevronDown className="w-5 h-5 text-white" />
           </motion.div>
         </motion.div>
 
+        {/* Accordion Content */}
         <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
@@ -68,7 +65,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
               }}
               className="overflow-hidden"
             >
-              <div className="p-4 pt-0 text-gray-100 border-t border-gray-100">
+              <div className="p-4 pt-0 text-gray-100 text-sm tracking-wide bg-[#6D8D7F] border-t font-extralight border-[#7c988c]">
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -82,6 +79,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         </AnimatePresence>
       </motion.div>
 
+      {/* Divider line below item */}
       {!isLast && (
         <motion.div
           className="flex items-center justify-center py-4"
@@ -89,7 +87,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.3 }}
         >
-          <div className=" w-full h-px bg-[#8aa499]"></div>
+          <div className="w-full h-px bg-[#8aa499]"></div>
         </motion.div>
       )}
     </>

@@ -35,7 +35,7 @@ const TestimonialSlider: React.FC = () => {
         "Breaks down your numbers, shows you how long your runway actually is, and where you're bleeding cash. Breaks down your numbers, shows you how long your runway actually is, and where you're bleeding cash",
       author: 'Sarah M',
       company: 'Tech Solutions',
-      description: 'Growing early-stage teams',
+      description: 'Growing early-stage',
       imageUrl: 'https://picsum.photos/200/250?random=2',
     },
     {
@@ -89,7 +89,7 @@ const TestimonialSlider: React.FC = () => {
             <SwiperSlide key={testimonial.id}>
               {/* Desktop Layout */}
               <div className="hidden md:block">
-                <div className="bg-white rounded-lg shadow-sm p-12 flex gap-8 max-w-4xl h-80 mx-auto">
+                <div className="flex bg-white rounded-lg shadow-sm p-12 gap-8 max-w-4xl h-80 mx-auto">
                   <div className="flex-1">
                     <p className="text-[#001032] text-lg leading-relaxed mb-6">
                       &quot;{testimonial.quote}&quot;
@@ -119,15 +119,15 @@ const TestimonialSlider: React.FC = () => {
               {/* Mobile Layout */}
               <div className="md:hidden">
                 <div className="bg-white rounded-lg shadow-sm p-6 max-w-sm mx-auto">
-                  <p className="text-gray-600 text-base leading-relaxed mb-6">
+                  <p className="text-gray-600 text-lg leading-relaxed tracking-wide mb-6">
                     &quot;{testimonial.quote}&quot;
                   </p>
                   <div className="flex items-start gap-4">
                     <div className="flex-1">
-                      <div className="text-gray-500 text-sm">
+                      <div className="text-gray-500 text-sm tracking-wide ">
                         <p className="font-medium">{testimonial.author}</p>
-                        <p>{testimonial.company}</p>
-                        <p>{testimonial.description}</p>
+                        <p className=''>{testimonial.company}</p>
+                        <p className=''>{testimonial.description}</p>
                       </div>
                     </div>
                     <div className="flex-shrink-0">
@@ -135,7 +135,7 @@ const TestimonialSlider: React.FC = () => {
                         <Image
                           src={testimonial.imageUrl}
                           alt={testimonial.author}
-                          width={64} // Required for remote images
+                          width={64} 
                           height={80} // Required for remote images
                           className="w-full h-full object-cover"
                           priority={index === 0} // Prioritize the first image for LCP
@@ -150,7 +150,7 @@ const TestimonialSlider: React.FC = () => {
           ))}
         </Swiper>
 
-        <div className="custom-pagination flex justify-center mt-8 space-x-2"></div>
+        <div className="flex custom-pagination justify-center mt-8 space-x-2"></div>
       </div>
     </div>
   );

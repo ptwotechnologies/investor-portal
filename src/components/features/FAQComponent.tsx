@@ -70,8 +70,10 @@ const FAQSection: React.FC = () => {
   return (
     <section className="bg-gray-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12 text-left">
-          Frequently Asked Questions
+        <h2 className="text-[22px]  lg:text-4xl font-bold text-gray-900 mb-12 text-left">
+          Here’s what founders 
+          <br className=''/>
+          usually ask
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8">

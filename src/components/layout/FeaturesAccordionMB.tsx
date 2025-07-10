@@ -26,20 +26,6 @@ const features: FeatureItem[] = [
       'Say goodbye to manual calculations. Our system automates payroll, tax filings, and benefit administration, ensuring accuracy and compliance.',
     imageUrl: 'https://picsum.photos/seed/payroll/800/600',
   },
-  {
-    id: 3,
-    title: 'Performance Management',
-    content:
-      'Set goals, track progress, and conduct performance reviews effortlessly. Foster employee growth with continuous feedback loops.',
-    imageUrl: 'https://picsum.photos/seed/performance/800/600',
-  },
-  {
-    id: 4,
-    title: 'Employee Self-Service Portal',
-    content:
-      'Empower your employees to manage their personal information, access pay stubs, and request time off without HR intervention.',
-    imageUrl: 'https://picsum.photos/seed/selfservice/800/600',
-  },
 ];
 
 const FeaturesAccordion: React.FC = () => {
@@ -54,7 +40,7 @@ const FeaturesAccordion: React.FC = () => {
   const staticImageAlt = "Our platform's main feature visual"; // A generic alt text for the static image
 
   return (
-    <section className="pb-8 md:pb-10 lg:pb-16 px-4 md:px-8 lg:px-16 bg-[#6D8D7F]">
+    <section className="pb-8 md:pb-10 lg:hidden lg:pb-16 px-4 md:px-8 lg:px-16 bg-[#6D8D7F]">
       <div className="max-w-7xl mx-auto">
         <div className="md:grid md:grid-cols-2 md:gap-12 items-start">
           {/* Left Side: Accordion */}
@@ -77,7 +63,7 @@ const FeaturesAccordion: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="md:col-span-1 md:block hidden"
+            className="hidden md:col-span-1 md:block"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
