@@ -4,7 +4,7 @@ import SystemDrainSection from '../features/SystemDrainSection'
 
 function WhatMakesDiffrent() {
   return (
-    <div>
+    <div className='hidden lg:block'>
       <HomeStats />
       <SystemDrainSection/>
     </div>

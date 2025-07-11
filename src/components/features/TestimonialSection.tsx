@@ -53,7 +53,7 @@ const TestimonialSlider: React.FC = () => {
     <div className="bg-gray-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <Swiper
-          modules={[Pagination, Autoplay]} // Include Autoplay module
+          modules={[Pagination, Autoplay]} 
           spaceBetween={20}
           slidesPerView={1.2}
           pagination={{
@@ -66,6 +66,10 @@ const TestimonialSlider: React.FC = () => {
             disableOnInteraction: false, // Set to true if you want autoplay to pause on user interaction
           }}
           breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 25,
+            },
             480: {
               slidesPerView: 1.3,
               spaceBetween: 25,
@@ -89,7 +93,7 @@ const TestimonialSlider: React.FC = () => {
             <SwiperSlide key={testimonial.id}>
               {/* Desktop Layout */}
               <div className="hidden md:block">
-                <div className="flex bg-white rounded-lg shadow-sm p-12 gap-8 max-w-4xl h-80 mx-auto">
+                <div className="flex bg-white rounded-md border-2 border-[#cccc] shadow-sm p-12 gap-8 max-w-4xl h-80 mx-auto">
                   <div className="flex-1">
                     <p className="text-[#001032] text-lg leading-relaxed mb-6">
                       &quot;{testimonial.quote}&quot;
@@ -118,28 +122,32 @@ const TestimonialSlider: React.FC = () => {
 
               {/* Mobile Layout */}
               <div className="md:hidden">
-                <div className="bg-white rounded-lg shadow-sm p-6 max-w-sm mx-auto">
-                  <p className="text-gray-600 text-lg leading-relaxed tracking-wide mb-6">
+                <div className="bg-white border-2 border-[#cccc] rounded-lg shadow-sm p-6 max-w-sm mx-auto">
+                  <p className="text-gray-600 xxs:text-sm xs:text-lg leading-relaxed tracking-wide mb-6">
                     &quot;{testimonial.quote}&quot;
                   </p>
                   <div className="flex items-start gap-4">
                     <div className="flex-1">
-                      <div className="text-gray-500 text-sm tracking-wide ">
+                      <div className="text-gray-500 text-sm tracking-wide">
                         <p className="font-medium">{testimonial.author}</p>
-                        <p className=''>{testimonial.company}</p>
-                        <p className=''>{testimonial.description}</p>
+                        <p>{testimonial.company}</p>
+                        <p>{testimonial.description}</p>
                       </div>
                     </div>
-                    <div className="flex-shrink-0">
+                    <div className="flex flex-shrink-0 items-center gap-6">
+                      {/* Vertical Line */}
+                      <div className="w-[1.5px] h-20 bg-gray-300" />
+
+                      {/* Image */}
                       <div className="w-16 h-20 bg-gray-200 rounded-full overflow-hidden">
                         <Image
                           src={testimonial.imageUrl}
                           alt={testimonial.author}
-                          width={64} 
-                          height={80} // Required for remote images
+                          width={64}
+                          height={80}
                           className="w-full h-full object-cover"
-                          priority={index === 0} // Prioritize the first image for LCP
-                          sizes="(max-width: 768px) 64px, 64px" // Define sizes for responsive loading
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 64px, 64px"
                         />
                       </div>
                     </div>

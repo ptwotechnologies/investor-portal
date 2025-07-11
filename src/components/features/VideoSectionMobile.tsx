@@ -47,11 +47,11 @@ export default function StartupPlatformCard() {
   ];
 
   return (
-    <div className="w-full mx-auto m overflow-hidden mt-0 lg:hidden shadow-2xl relative">
+    <div className="w-full mx-auto overflow-hidden mt-0 lg:hidden shadow-2xl relative">
       {/* First section */}
-      <div className="px-6 pt-8 pb-30 text-white rounded-b-3xl bg-primary-950 z-10 relative">
-        <div className="flex w-fit items-center px-4 py-4 rounded-full bg-gradient-to-r from-[#001032] to-[#002471] bg-white/20 backdrop-blur-sm mb-10 mx-auto">
-          <span className="text-[16px] text-center font-medium tracking-widest">
+      <div className="px-4 xs:px-6 pt-6 xs:pt-8 pb-24 xs:pb-28 md:pb-32 text-white rounded-b-3xl bg-primary-950 z-10 relative">
+        <div className="flex w-fit items-center px-3 xs:px-4 py-2.5 rounded-full bg-gradient-to-r from-[#001032] to-[#002471] bg-white/20 backdrop-blur-sm mb-8 xs:mb-10 mx-auto">
+          <span className="text-sm xs:text-[16px] text-center font-medium tracking-widest">
             We&apos;ve built a platform for startups
           </span>
         </div>
@@ -59,8 +59,30 @@ export default function StartupPlatformCard() {
         <div className="relative mb-6">
           <Swiper
             modules={[Autoplay]}
-            spaceBetween={10}
-            slidesPerView={2.5}
+            spaceBetween={8}
+            slidesPerView={2.2}
+            breakpoints={{
+              320: {
+                slidesPerView: 2.2,
+                spaceBetween: 8,
+              },
+              375: {
+                slidesPerView: 2.4,
+                spaceBetween: 4,
+              },
+              425: {
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 3,
+                spaceBetween: 12,
+              },
+              768: {
+                slidesPerView: 3.5,
+                spaceBetween: 15,
+              },
+            }}
             loop={true}
             autoplay={{
               delay: 3000,
@@ -71,16 +93,16 @@ export default function StartupPlatformCard() {
             {sliderItems.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="relative w-[120px] h-[160px] md:w-[150px] md:h-[200px] lg:w-[180px] lg:h-[240px] rounded-full overflow-hidden bg-gray-300 flex-shrink-0 mb-4">
+                  <div className="relative w-[100px] h-[130px] xs:w-[120px] xs:h-[160px] sm:w-[140px] sm:h-[180px] md:w-[150px] md:h-[200px] rounded-full overflow-hidden bg-gray-300 flex-shrink-0 mb-3 xs:mb-4">
                     <Image
                       src={item.imageUrl}
                       alt={item.altText}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 120px, (max-width: 1200px) 150px, 180px"
+                      sizes="(max-width: 320px) 100px, (max-width: 425px) 120px, (max-width: 640px) 140px, (max-width: 768px) 150px, 180px"
                     />
                   </div>
-                  <p className="text-white text-left text-[12px] mt-2 max-w-[140px] mx-auto">
+                  <p className="text-white text-left text-[10px] xs:text-[12px] sm:text-[13px] mt-2 max-w-[110px] xs:max-w-[140px] sm:max-w-[160px] mx-auto leading-tight">
                     {item.description}
                   </p>
                 </div>
@@ -90,26 +112,26 @@ export default function StartupPlatformCard() {
         </div>
       </div>
 
-      <div className="-mt-20 z-20 relative">
-        <div className="p-3">
-          <div className="w-full h-48 md:h-72 rounded-lg relative overflow-hidden">
+      <div className="-mt-16 xs:-mt-20 md:-mt-24 z-20 relative">
+        <div className="p-2 xs:p-3">
+          <div className="w-full h-40 xs:h-48 sm:h-56 md:h-64 rounded-lg relative overflow-hidden">
             <Image
               src="https://picsum.photos/400/300"
               alt="Startup platform illustration"
               fill
               className="object-cover"
-              sizes="(max-width: 400px) 100vw, 400px"
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </div>
         </div>
 
-        <div className="flex bg-white mb-5 mt-2 px-6 justify-center relative">
+        <div className="flex bg-white mb-4 xs:mb-5 mt-2 px-4 xs:px-6 justify-center relative">
           <div className="p-[1px] rounded-sm bg-gradient-to-r from-[#001032] to-[#002471] inline-block">
             <Button
               variant="white"
-              className="tracking-wide text-[#001748] text-lg font-normal bg-white hover:bg-white h-10 px-4 rounded-sm"
+              className="tracking-wide text-[#001748] text-base xs:text-lg font-normal bg-white hover:bg-white h-9 xs:h-10 px-3 xs:px-4 rounded-sm"
             >
-              See How it Works <ArrowRight className="ml-2 h-4 w-4" />
+              See How it Works <ArrowRight className="ml-2 h-3 w-3 xs:h-4 xs:w-4" />
             </Button>
           </div>
         </div>

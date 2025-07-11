@@ -27,9 +27,9 @@ const ResponsiveFeaturesSection = () => {
   ];
 
   return (
-    <div className="bg-primary-950 lg:bg-white lg:text-primary-950 text-white py-4 lg:py-20 px-4 md:px-8 lg:px-16">
+    <div className="bg-primary-950 lg:bg-white lg:text-primary-950 text-white py-4 lg:py-10 xl:py-12 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto mb-6 mt-16">
-        <div className="hidden md:grid md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="hidden lg:grid lg:grid-cols-4 gap-8 lg:gap-12">
           {features.slice(0, 4).map((feature, index) => (
             <div key={index} className="text-center">
               <div className="w-20 h-20 lg:w-24 lg:h-24 mx-auto mb-12 rounded-full overflow-hidden relative">
@@ -48,7 +48,7 @@ const ResponsiveFeaturesSection = () => {
           ))}
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <div className="grid grid-cols-2 divide-x-2 divide-gray-700 mb-16">
             {' '}
             {/* Increased mb-8 to mb-16 */}

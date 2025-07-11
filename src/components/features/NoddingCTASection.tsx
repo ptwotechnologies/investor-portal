@@ -3,7 +3,7 @@ import { Button } from '../ui/Button';
 
 const NoddingCTASection: React.FC = () => {
   return (
-    <section className="bg-gradient-to-b from-[#001032] to-[#001542] py-16 px-4 md:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-[#001032] to-[#001542] py-8 lg:py-12 xl:py-16  px-4 md:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6">
           Found yourself nodding?

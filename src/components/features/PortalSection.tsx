@@ -43,11 +43,11 @@ const PortalSection: React.FC = () => {
   ];
 
   return (
-    <section className="portal-section lg:bg-white bg-primary-950 py-10 px-4 md:px-6 lg:px-8">
+    <section className="portal-section lg:bg-white bg-primary-950 lg:py-10 px-4 md:px-6 lg:px-8">
       <div className="max-w-[1440px] mx-auto">
-        <h2 className="text-4xl md:text-4xl font-semibold tracking-wide text-white lg:text-[#33405b] mb-8 text-left pl-4">
-          Who is this
-          <br className="lg:hidden" />
+        <h2 className="text-4xl md:text-4xl font-semibold tracking-wide text-white lg:text-[#33405b] mb-8 text-left ">
+          Who is this {" "}
+          <br className="md:hidden" />
           portal for?
         </h2>
 

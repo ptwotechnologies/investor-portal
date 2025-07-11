@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 
 const MondayReminder: React.FC = () => {
   return (
-    <div className="flex w-screen items-center justify-center bg-[#e6e8eb] lg:bg-primary-950 p-8 md:px-16 md:py:8 lg:py-16">
+    <div className="flex w-screen items-center justify-center bg-[#e6e8eb] md:bg-primary-950 p-8 md:px-16 md:py:8 lg:py-16">
       <div className="w-full overflow-hidden bg-gradient-to-b from-[#C1CFED] to-[#0F2B99] p-7 md:p-8 ">
         <div className="flex flex-col items-center justify-center text-center bg-primary-950 px-4 py-8 lg:py-24">
           <h2 className="text-white text-base xs:text-lg md:text-4xl lg:text-5xl font-bold mb-6 leading-relaxed tracking-wide lg:tracking-normal">
