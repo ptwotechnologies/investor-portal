@@ -50,10 +50,10 @@ const TestimonialSlider: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="px-4 py-16 bg-gray-50">
+      <div className="mx-auto max-w-7xl">
         <Swiper
-          modules={[Pagination, Autoplay]} 
+          modules={[Pagination, Autoplay]}
           spaceBetween={20}
           slidesPerView={1.2}
           pagination={{
@@ -98,20 +98,20 @@ const TestimonialSlider: React.FC = () => {
                     <p className="text-[#001032] text-lg leading-relaxed mb-6">
                       &quot;{testimonial.quote}&quot;
                     </p>
-                    <div className="text-gray-500 text-sm">
+                    <div className="text-sm text-gray-500">
                       <p className="font-medium">{testimonial.author}</p>
                       <p>{testimonial.company}</p>
                       <p>{testimonial.description}</p>
                     </div>
                   </div>
                   <div className="flex-shrink-0">
-                    <div className="w-32 h-40 bg-gray-200 rounded-lg overflow-hidden">
+                    <div className="w-32 h-40 overflow-hidden bg-gray-200 rounded-lg">
                       <Image
                         src={testimonial.imageUrl}
                         alt={testimonial.author}
                         width={128} // Required for remote images
                         height={160} // Required for remote images
-                        className="w-full h-full object-cover"
+                        className="object-cover w-full h-full"
                         priority={index === 0} // Prioritize the first image for LCP
                         sizes="(max-width: 768px) 128px, (max-width: 1200px) 128px, 128px" // Define sizes for responsive loading
                       />
@@ -123,29 +123,29 @@ const TestimonialSlider: React.FC = () => {
               {/* Mobile Layout */}
               <div className="md:hidden">
                 <div className="bg-white border-2 border-[#cccc] rounded-lg shadow-sm p-6 max-w-sm mx-auto">
-                  <p className="text-gray-600 xxs:text-sm xs:text-lg leading-relaxed tracking-wide mb-6">
+                  <p className="mb-6 leading-relaxed tracking-wide text-gray-600 xxs:text-sm xs:text-lg">
                     &quot;{testimonial.quote}&quot;
                   </p>
                   <div className="flex items-start gap-4">
                     <div className="flex-1">
-                      <div className="text-gray-500 text-sm tracking-wide">
+                      <div className="text-sm tracking-wide text-gray-500">
                         <p className="font-medium">{testimonial.author}</p>
                         <p>{testimonial.company}</p>
                         <p>{testimonial.description}</p>
                       </div>
                     </div>
-                    <div className="flex flex-shrink-0 items-center gap-6">
+                    <div className="flex items-center flex-shrink-0 gap-6">
                       {/* Vertical Line */}
                       <div className="w-[1.5px] h-20 bg-gray-300" />
 
                       {/* Image */}
-                      <div className="w-16 h-20 bg-gray-200 rounded-full overflow-hidden">
+                      <div className="w-16 h-20 overflow-hidden bg-gray-200 rounded-full">
                         <Image
                           src={testimonial.imageUrl}
                           alt={testimonial.author}
                           width={64}
                           height={80}
-                          className="w-full h-full object-cover"
+                          className="object-cover w-full h-full"
                           priority={index === 0}
                           sizes="(max-width: 768px) 64px, 64px"
                         />
@@ -158,7 +158,7 @@ const TestimonialSlider: React.FC = () => {
           ))}
         </Swiper>
 
-        <div className="flex custom-pagination justify-center mt-8 space-x-2"></div>
+        <div className="flex justify-center mt-8 space-x-2 custom-pagination"></div>
       </div>
     </div>
   );
