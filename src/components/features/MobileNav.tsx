@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '../ui/Button';
 import { navigation } from '../../config/navConfig';
@@ -14,13 +14,25 @@ export default function MobileNav({
   mobileMenuOpen,
   setMobileMenuOpen,
 }: MobileNavProps) {
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      // Reset expanded items when menu closes
+      setExpandedItems([]);
     }
   }, [mobileMenuOpen]);
+
+  const toggleDropdown = (itemName: string) => {
+    setExpandedItems(prev =>
+      prev.includes(itemName)
+        ? prev.filter(name => name !== itemName)
+        : [...prev, itemName]
+    );
+  };
 
   return (
     <div
@@ -28,23 +40,25 @@ export default function MobileNav({
         mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >
-      <div className="fixed inset-0 bg-black bg-opacity-70"></div>
+      {/* This is the full-screen transparent dark overlay, already has backdrop-blur-sm */}
+      <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}></div>
+
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm bg-primary-950 shadow-xl overflow-y-auto transform transition-transform duration-300 ease-in-out ${
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm shadow-xl overflow-y-auto transform transition-transform duration-300 ease-in-out
+          ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
+          bg-primary-950/90 backdrop-blur-sm`} 
       >
-        <div className="flex items-center justify-between p-6">
+        <div className="flex items-center justify-between p-6 border-b border-primary-800">
           <Link
             href="/"
-            className="text-2xl font-bold"
+            className="text-2xl font-bold text-white"
             onClick={() => setMobileMenuOpen(false)}
           >
-            LOGO
+            PORTAL
           </Link>
           <button
             type="button"
-            className="p-2 text-white rounded-md cursor-pointer hover:bg-primary-800"
+            className="p-2 text-white transition-colors rounded-md cursor-pointer hover:bg-primary-800"
             onClick={() => setMobileMenuOpen(false)}
           >
             <span className="sr-only">Close menu</span>
@@ -63,43 +77,77 @@ export default function MobileNav({
             </svg>
           </button>
         </div>
-        <div className="px-6 py-4 mt-2">
-          <div className="space-y-4">
-            {navigation.map((item) => (
-              <div key={item.name} className="py-2">
-                <Link
-                  href={item.href}
-                  className="block text-xl font-semibold text-white hover:text-gray-200"
-                  onClick={() => !item.dropdown && setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
 
-                {item.dropdown && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    {item.dropdown.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        href={subItem.href}
-                        className="block py-1 text-gray-300 hover:text-white"
-                        onClick={() => setMobileMenuOpen(false)}
+        <div className="px-6 py-4">
+          <div className="space-y-2">
+            {navigation.map((item) => (
+              <div key={item.name} className="border-b border-primary-800/30 last:border-b-0">
+                {item.dropdown ? (
+                  <div>
+                    <button
+                      className="flex items-center justify-between w-full py-4 text-lg font-semibold text-left text-white transition-colors hover:text-gray-200"
+                      onClick={() => toggleDropdown(item.name)}
+                    >
+                      <span>{item.name}</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-200 ${
+                          expandedItems.includes(item.name) ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        stroke="currentColor"
                       >
-                        {subItem.name}
-                      </Link>
-                    ))}
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        expandedItems.includes(item.name)
+                          ? 'max-h-96 opacity-100 pb-4'
+                          : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <div className="ml-4 space-y-2">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-3 py-2 text-gray-300 transition-colors rounded-md hover:text-white hover:bg-primary-800/50"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block py-4 text-lg font-semibold text-white transition-colors hover:text-gray-200"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
                 )}
               </div>
             ))}
           </div>
-          <div className="mt-8 space-y-4">
+
+          <div className="pt-6 mt-8 space-y-4 border-t border-primary-800">
             <Link href="/signin" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="white" className="w-full mt-2">
+              <Button variant="white" className="w-full">
                 Login
               </Button>
             </Link>
             <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="default" className="w-full mt-2" size="auth">
+              <Button variant="default" className="w-full" size="auth">
                 Sign up
               </Button>
             </Link>

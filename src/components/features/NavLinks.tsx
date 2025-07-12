@@ -58,12 +58,12 @@ export default function NavLinks({ navContainerRef }: NavLinksProps) {
   return (
     <div
       ref={navContainerRef}
-      className="flex relative items-center py-1 rounded-full bg-primary-800"
+      className="relative flex items-center py-1 rounded-full bg-primary-800"
       onMouseLeave={handleNavMouseLeave}
     >
       {/* Sliding background */}
       <div
-        className="absolute top-1 bottom-1 bg-[#bdbbff] rounded-full transition-all duration-300 ease-out pointer-events-none"
+        className="absolute transition-all duration-300 ease-out rounded-full pointer-events-none top-1 bottom-1 bg-primary-hover"
         style={sliderStyle}
       />
 
@@ -103,7 +103,7 @@ export default function NavLinks({ navContainerRef }: NavLinksProps) {
 
               {openDropdown === item.name && (
                 <div className="absolute left-0 z-10 mt-2 min-w-[220px] box-forming">
-                  <div className="py-2 bg-primary-950 rounded-md shadow-lg border border-primary-800">
+                  <div className="py-2 border rounded-md shadow-lg bg-primary-950 border-primary-800">
                     <div className="dropdown-content-fade">
                       {item.dropdown.map((subItem) => (
                         <Link

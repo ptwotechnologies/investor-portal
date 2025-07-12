@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header
-      className={`bg-primary-950 text-white ${isScrolled ? 'shadow-md' : ''}`}
+      className={`fixed top-0 left-0 right-0  z-50 bg-primary-950 text-white ${isScrolled ? 'shadow-md' : ''}`}
     >
       <nav
         className="flex items-center justify-between py-4 max-w-[1400px] px-3.5 mx-auto lg:py-4"

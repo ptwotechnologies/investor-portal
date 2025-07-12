@@ -21,6 +21,7 @@ export default function Home() {
   return (
     <>
       <Suspense fallback={<Loader />}>
+      
         <HeroSection />
         <VideoSectionMobile />
         <StartupBenefits />

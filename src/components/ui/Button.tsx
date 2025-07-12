@@ -14,7 +14,7 @@ const buttonVariants = cva(
         ghost: 'hover:bg-primary-50 hover:text-primary-950',
         link: 'underline-offset-4 hover:underline text-primary-950',
         white:
-          'bg-white text-primary-950 hover:bg-primary-800 hover:text-white',
+          'bg-white text-primary-950 hover:bg-primary-hover ',
         'outline-primary':
           'border border-primary-950 text-primary-950 hover:bg-primary-950 hover:text-white',
       },
