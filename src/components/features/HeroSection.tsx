@@ -20,8 +20,10 @@ export default function HeroSection() {
             </div>
 
             <div>
-              <h1 className="text-3xl text-[#F3F3FF] font-semibold leading-tight tracking-wide sm:text-4xl md:text-4xl xl:text-6xl sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight">
-                Everything you need to scale your startUp
+              <h1 className="text-3xl text-[#F3F3FF] font-semibold leading-tight tracking-wide sm:text-4xl md:text-4xl xl:text-5xl sm:leading-tight md:leading-tight lg:leading-[59px] ">
+                Everything you need {" "}
+                <br className='hidden lg:block'/>
+                 to scale your startUp
               </h1>
               <p className="text-base sm:text-lg md:text-lg lg:text-xl text-[#F3F3FF] mt-4 sm:mt-6 md:mt-6 lg:mt-8 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed max-w-none sm:max-w-none md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%]">
                 Get expert-backed support, investor visibility, low-cost
@@ -30,13 +32,14 @@ export default function HeroSection() {
             </div>
 
             <div className="pt-2 md:pt-2 lg:pt-4">
-              <Button
-                variant="white"
-                size="lg"
-                className="w-32 px-6 py-4 text-sm sm:px-8 md:px-6 sm:py-6 md:py-4 sm:w-36 md:w-32 sm:text-base md:text-sm"
-              >
-                Get Started
-              </Button>
+           <Button
+  variant="white"
+  size="lg"
+  className="px-6 py-3 text-sm whitespace-nowrap"
+>
+  Get Started
+</Button>
+
             </div>
           </div>
 

@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
-import './styles.css'
+import './styles.css';
 import { Suspense } from 'react';
 import Loader from '@/components/ui/Loader';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
-// Import Inter font
-const inter = Inter({
+
+const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+ 
 });
 
 export const metadata: Metadata = {
@@ -28,7 +29,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Separate viewport export as recommended in Next.js 15
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -40,12 +40,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={poppins.className}>
       <body>
         <Suspense fallback={<Loader />}>
           <Header />
           <main>
-            <div className="w-full mx-auto">{children}</div>
+            <div className={`${poppins.className} w-full mx-auto`}>{children}</div>
           </main>
           <Footer />
         </Suspense>
