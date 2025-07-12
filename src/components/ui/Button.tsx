@@ -1,6 +1,8 @@
+'use client';
 import { cn } from '@/lib/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
 const buttonVariants = cva(
   'cursor-pointer inline-flex items-center justify-center rounded-sm text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background p-1',
@@ -33,16 +35,43 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onDrag'>,
+    VariantProps<typeof buttonVariants> {
+  disableAnimation?: boolean;
+}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+  ({ className, variant, size, disableAnimation = false, ...props }, ref) => {
+    if (disableAnimation) {
+      return (
+        <button
+          className={cn(buttonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        />
+      );
+    }
+
     return (
-      <button
+      <motion.button
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
-        {...props}
+        whileHover={{ 
+          scale: 1.02,
+          transition: { duration: 0.2, ease: "easeOut" }
+        }}
+        whileTap={{ 
+          scale: 0.95,
+          transition: { duration: 0.1, ease: "easeInOut" }
+        }}
+        initial={{ scale: 1 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 17
+        }}
+        {...(props as HTMLMotionProps<"button">)}
       />
     );
   }

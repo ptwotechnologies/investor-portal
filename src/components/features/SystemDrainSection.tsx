@@ -55,24 +55,24 @@ export default function SystemDrainSection() {
 
   return (
     <section
-      className="hidden md:block relative pt-0 pb-20 px-6 overflow-hidden"
+      className="relative hidden px-6 pt-0 pb-20 overflow-hidden md:block"
       style={{
         background: 'linear-gradient(to bottom, #00194e, #001f61)',
       }}
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div className="text-white space-y-4">
+      <div className="max-w-[1440px] mx-auto">
+        <div className="grid items-start gap-16 lg:grid-cols-2">
+          <div className="space-y-4 text-white">
             {accordionData.map((item, index) => (
               <div key={item.id} className="space-y-4">
                 <div className="w-full h-px bg-white/20"></div>
 
-                <div className="bg-transparent backdrop-blur-sm rounded-lg">
+                <div className="bg-transparent rounded-lg backdrop-blur-sm">
                   <button
                     onClick={() => toggleAccordion(item.id)}
-                    className="flex cursor-pointer w-full px-6 py-4 items-center text-left justify-between hover:bg-white/5 transition-all duration-300 rounded-lg"
+                    className="flex items-center justify-between w-full py-4 pl-0 pr-6 text-left duration-300 rounded-lg cursor-pointer trnsition-all hover:bg-white/5"
                   >
-                    <h2 className="text-xl font-semibold leading-tight pr-4">
+                    <h2 className="pr-4 text-xl font-semibold leading-tight">
                       {item.title}
                     </h2>
                   </button>
@@ -87,7 +87,7 @@ export default function SystemDrainSection() {
                         className="overflow-hidden"
                       >
                         {/* Adjusted class for tighter paragraph spacing */}
-                        <div className="px-6 pb-6 text-base opacity-90 leading-loose">
+                        <div className="pb-6 pl-0 pr-6 text-base leading-loose opacity-90">
                           {item.content.map((paragraph, pIndex) => (
                             <p
                               key={pIndex}
@@ -112,13 +112,13 @@ export default function SystemDrainSection() {
           </div>
 
           <div className="flex justify-center">
-            <div className="w-full bg-gray-400 rounded-lg overflow-hidden">
+            <div className="w-full overflow-hidden bg-gray-400 rounded-lg">
               <Image
                 src="https://picsum.photos/650/564?random=1"
                 alt="Business illustration"
                 width={650}
                 height={564}
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full"
                 priority
               />
             </div>
@@ -126,7 +126,7 @@ export default function SystemDrainSection() {
         </div>
 
         <div className="mt-20 text-center">
-          <div className="inline-block bg-white rounded-full px-14 py-4 shadow-lg">
+          <div className="inline-block py-4 bg-white rounded-full shadow-lg px-14">
             <p className="text-2xl font-semibold text-gray-800">
               Simply, a one stop solution for startups & founders!
             </p>

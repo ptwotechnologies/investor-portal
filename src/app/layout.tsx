@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import './styles.css'
 import { Suspense } from 'react';
 import Loader from '@/components/ui/Loader';
 import Header from '@/components/layout/Header';

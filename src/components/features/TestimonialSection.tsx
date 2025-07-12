@@ -51,7 +51,7 @@ const TestimonialSlider: React.FC = () => {
 
   return (
     <div className="px-4 py-16 bg-gray-50">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1440px]"> {/* Updated this line */}
         <Swiper
           modules={[Pagination, Autoplay]}
           spaceBetween={20}

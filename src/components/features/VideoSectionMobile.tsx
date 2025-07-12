@@ -5,6 +5,7 @@ import { Button } from '../ui/Button';
 import { ArrowRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { useRef, useEffect, useState } from 'react'; // Import React hooks
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -46,10 +47,42 @@ export default function StartupPlatformCard() {
     },
   ];
 
+  const mainImageRef = useRef<HTMLDivElement>(null);
+  const [imageHeight, setImageHeight] = useState(0);
+
+  // Measure image height on mount and resize
+  useEffect(() => {
+    const updateImageHeight = () => {
+      if (mainImageRef.current) {
+        setImageHeight(mainImageRef.current.offsetHeight);
+      }
+    };
+
+    // Set initial height
+    updateImageHeight();
+
+    // Update height on resize (debounced for performance if needed, but often fine for simple cases)
+    window.addEventListener('resize', updateImageHeight);
+
+    // Cleanup listener on unmount
+    return () => window.removeEventListener('resize', updateImageHeight);
+  }, []); // Empty dependency array ensures this runs once on mount and cleans up on unmount
+
+  // Calculate dynamic padding/margin based on measured image height
+  const overlapAmount = imageHeight / 2;
+
+  // Additional static padding/margin to add to dynamic values for fine-tuning
+  // These prevent content from hugging edges too much, adjust as needed.
+  const topSectionExtraPadding = 40; // px, roughly corresponds to `pb-10` or `pb-16` equivalent
+  const bottomSectionExtraPadding = 24; // px, roughly corresponds to `pt-6` or `pt-8` equivalent
+
   return (
-    <div className="w-full mx-auto overflow-hidden mt-0 lg:hidden shadow-2xl relative">
-      {/* First section */}
-      <div className="px-4 xs:px-6 pt-6 xs:pt-8 pb-24 xs:pb-28 md:pb-32 text-white rounded-b-3xl bg-primary-950 z-10 relative">
+    <div className="relative w-full mx-auto mt-0 overflow-hidden shadow-2xl lg:hidden">
+      {/* Top Section - Dynamic padding-bottom to create space for the overlapping image */}
+      <div
+        className="relative z-10 px-4 pt-6 text-white rounded-b-3xl bg-primary-950"
+        style={{ paddingBottom: `${overlapAmount + topSectionExtraPadding}px` }}
+      >
         <div className="flex w-fit items-center px-3 xs:px-4 py-2.5 rounded-full bg-gradient-to-r from-[#001032] to-[#002471] bg-white/20 backdrop-blur-sm mb-8 xs:mb-10 mx-auto">
           <span className="text-sm xs:text-[16px] text-center font-medium tracking-widest">
             We&apos;ve built a platform for startups
@@ -72,7 +105,7 @@ export default function StartupPlatformCard() {
               },
               425: {
                 slidesPerView: 2.5,
-                spaceBetween: 10,
+                spaceBetween: 6,
               },
               640: {
                 slidesPerView: 3,
@@ -83,7 +116,6 @@ export default function StartupPlatformCard() {
                 spaceBetween: 15,
               },
             }}
-            loop={true}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -93,13 +125,13 @@ export default function StartupPlatformCard() {
             {sliderItems.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="flex flex-col items-center text-center">
-                  <div className="relative w-[100px] h-[130px] xs:w-[120px] xs:h-[160px] sm:w-[140px] sm:h-[180px] md:w-[150px] md:h-[200px] rounded-full overflow-hidden bg-gray-300 flex-shrink-0 mb-3 xs:mb-4">
+                  <div className="relative w-[110px] h-[155px] xs:w-[130px] xs:h-[185px] sm:w-[150px] sm:h-[205px] md:w-[160px] md:h-[225px] rounded-full overflow-hidden bg-gray-300 flex-shrink-0 mb-3 xs:mb-4">
                     <Image
                       src={item.imageUrl}
                       alt={item.altText}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 320px) 100px, (max-width: 425px) 120px, (max-width: 640px) 140px, (max-width: 768px) 150px, 180px"
+                      sizes="(max-width: 320px) 110px, (max-width: 425px) 130px, (max-width: 640px) 150px, (max-width: 768px) 160px, 190px"
                     />
                   </div>
                   <p className="text-white text-left text-[10px] xs:text-[12px] sm:text-[13px] mt-2 max-w-[110px] xs:max-w-[140px] sm:max-w-[160px] mx-auto leading-tight">
@@ -112,11 +144,18 @@ export default function StartupPlatformCard() {
         </div>
       </div>
 
-      <div className="-mt-16 xs:-mt-20 md:-mt-24 z-20 relative">
-        <div className="p-2 xs:p-3">
-          <div className="w-full h-40 xs:h-48 sm:h-56 md:h-64 rounded-lg relative overflow-hidden">
+      {/* Container for the image and the bottom section */}
+      {/* This div itself does NOT need a margin-top directly, as the top section's padding manages overlap space */}
+      <div className="relative z-20">
+        <div className="px-4 xs:px-6">
+          {/* Main platform image wrapper - its height is determined by aspect ratio and w-full */}
+          {/* -translate-y-1/2 ensures 50% *visual* overlap, pulling it up */}
+          <div
+            ref={mainImageRef} // Attach ref here to measure its height
+            className="relative w-full aspect-[1.71/1] overflow-hidden shadow-xl rounded-2xl -translate-y-1/2"
+          >
             <Image
-              src="https://picsum.photos/400/300"
+              src="https://picsum.photos/350/200"
               alt="Startup platform illustration"
               fill
               className="object-cover"
@@ -125,14 +164,22 @@ export default function StartupPlatformCard() {
           </div>
         </div>
 
-        <div className="flex bg-white mb-4 xs:mb-5 mt-2 px-4 xs:px-6 justify-center relative">
-          <div className="p-[1px] rounded-sm bg-gradient-to-r from-[#001032] to-[#002471] inline-block">
-            <Button
-              variant="white"
-              className="tracking-wide text-[#001748] text-base xs:text-lg font-normal bg-white hover:bg-white h-9 xs:h-10 px-3 xs:px-4 rounded-sm"
-            >
-              See How it Works <ArrowRight className="ml-2 h-3 w-3 xs:h-4 xs:w-4" />
-            </Button>
+        {/* Bottom section with button - Dynamic margin-top to pull it up to the correct position */}
+        <div
+          className="relative px-4 pt-6 pb-6 bg-white xs:px-6 xs:pb-8"
+         
+          style={{ marginTop: `-${overlapAmount - bottomSectionExtraPadding}px` }}
+        >
+          <div className="flex justify-center">
+            <div className="p-[1px] rounded-lg bg-gradient-to-r from-[#001032] to-[#002471] inline-block shadow-lg">
+              <Button
+                variant="white"
+                className="tracking-wide text-[#001748] text-base xs:text-lg font-medium bg-white hover:bg-gray-50 transition-colors duration-200 h-11 xs:h-12 px-6 xs:px-8 rounded-lg"
+              >
+                See How it Works
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 xs:h-5 xs:w-5 group-hover:translate-x-1" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

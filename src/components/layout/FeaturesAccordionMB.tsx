@@ -14,16 +14,16 @@ interface FeatureItem {
 const features: FeatureItem[] = [
   {
     id: 1,
-    title: 'Streamlined Onboarding',
+    title: 'Really! The system is built to drain founders…',
     content:
-      'Our intuitive platform makes onboarding new team members a breeze, reducing paperwork and accelerating productivity from day one.',
+      'First, the ad platforms charge you for every single click (doesn’t matter if those clicks) See more...',
     imageUrl: 'https://picsum.photos/seed/onboarding/800/600', // This will be the fixed image
   },
   {
     id: 2,
-    title: 'Automated Payroll & Benefits',
+    title: 'That’s when we decided, we need to fix this...',
     content:
-      'Say goodbye to manual calculations. Our system automates payroll, tax filings, and benefit administration, ensuring accuracy and compliance.',
+      'So our team sat together, spent months on planning, strategizing, building and came up See more...',
     imageUrl: 'https://picsum.photos/seed/payroll/800/600',
   },
 ];
@@ -41,11 +41,11 @@ const FeaturesAccordion: React.FC = () => {
 
   return (
     <section className="pb-8 md:pb-10 lg:hidden lg:pb-16 px-4 md:px-8 lg:px-16 bg-[#6D8D7F]">
-      <div className="max-w-7xl mx-auto">
-        <div className="md:grid md:grid-cols-2 md:gap-12 items-start">
+      <div className="mx-auto max-w-7xl">
+        <div className="items-start md:grid md:grid-cols-2 md:gap-12">
           {/* Left Side: Accordion */}
           <motion.div
-            className="md:col-span-1 w-full"
+            className="w-full md:col-span-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: 'easeOut' }}

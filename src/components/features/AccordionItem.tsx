@@ -34,14 +34,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
       >
         {/* Title Container - Rounded */}
         <motion.div
-          className="flex justify-between items-center p-4 cursor-pointer bg-[#678679] rounded-full transition-colors duration-200"
+          className="flex justify-between items-center p-2.5 cursor-pointer bg-[#678679] rounded-full transition-colors duration-200"
           onClick={() => onClick(item.id)}
           whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
           whileTap={{ scale: 0.98 }}
         >
-          <h3 className="sm:text-xl font-bold md:text-lg lg:text-2xl text-white">
-            {item.title}
-          </h3>
+         <h3 className="font-bold text-white text-[12px] leading-[30px] md:text-[14px] truncate overflow-hidden whitespace-nowrap w-full">
+{item.title}</h3>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -65,7 +64,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
               }}
               className="overflow-hidden"
             >
-              <div className="p-4 pt-0 text-gray-100 text-sm tracking-wide bg-[#6D8D7F] font-extralight">
+              <div className="p-4 pt-0 text-gray-100 text-[12px] md:text-sm leading-[25px] tracking-wide bg-[#6D8D7F] font-extralight">
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}

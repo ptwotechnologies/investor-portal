@@ -11,8 +11,10 @@ const StartupBenefits = () => {
   ];
 
   return (
-    <div className="hidden pb-8 bg-primary-950 lg:block md:pb-12 lg:pb-16">
-      <div className="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+    // Outer div for background and overall section padding
+    <div className="hidden px-4 py-16 bg-primary-950 sm:px-6 md:px-8 md:py-12 lg:px-8 lg:py-10 lg:block"> {/* Adjusted padding and visibility */}
+      {/* Inner container for max-width and horizontal centering */}
+      <div className="max-w-[1440px] mx-auto"> {/* Updated max-w and ensured mx-auto */}
         {/* We've built a platform for startups button */}
         <div className="mb-6 md:mb-8 lg:mb-12">
           <button className="inline-flex items-center px-4 py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-[#001032] to-[#002471] rounded-full text-white text-xs md:text-sm">

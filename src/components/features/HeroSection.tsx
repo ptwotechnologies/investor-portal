@@ -1,30 +1,29 @@
-import React from 'react';
 import { Button } from '../ui/Button';
 import Image from 'next/image';
 import HrComponent from './HrComponent';
+import { ArrowRight } from 'lucide-react';
+import React from 'react';
 
 export default function HeroSection() {
   return (
-    <div className="bg-primary-950 p-4 sm:p-6 md:px-8 md:py-6 lg:p-12 text-white">
-      <div className="max-w-[1400px] h-full mx-auto md:pt-4 lg:pt-2">
-        <div className="grid grid-cols-1 my-8 sm:my-10 md:my-8 lg:my-6 md:grid-cols-2 lg:grid-cols-2 gap-12 md:gap-8 lg:gap-40 items-start">
+    <div className="px-4 py-4 bg-primary-950 sm:px-6 md:px-8 md:py-12 lg:px-8 lg:py-10">
+      <div className="max-w-[1440px] h-full mx-auto md:pt-4 lg:pt-2">
+        <div className="grid items-start grid-cols-1 gap-12 my-8 sm:my-10 md:my-8 lg:my-6 md:grid-cols-2 lg:grid-cols-2 md:gap-8 lg:gap-16 xl:gap-40">
           <div className="space-y-6 md:space-y-6 lg:space-y-8">
             <div className="md:mb-3 lg:mb-6">
-              <div className="inline-block px-3 sm:px-4 md:px-4 py-2 md:py-2 bg-gradient-to-r from-[#001032] to-[#002471] rounded-full">
-                <span className="flex text-white font-normal text-xs sm:text-sm md:text-sm lg:text-lg items-center justify-start leading-relaxed tracking-tight">
-                  Built for startups ready to grow smarter
-                </span>
-              </div>
+               <div className="mb-6 md:mb-8 lg:mb-12">
+          <button className="inline-flex items-center px-4 py-2 md:px-5 md:py-2.5 bg-gradient-to-r from-[#001032] to-[#002471] rounded-full text-white text-xs md:text-sm">
+            We&apos;ve built a platform for startups
+            <ArrowRight className="w-3 h-3 ml-2 md:h-4 md:w-4" />
+          </button>
+        </div>
             </div>
 
             <div>
-              <h1 className="text-3xl sm:text-4xl md:text-3xl lg:text-5xl font-semibold leading-tight sm:leading-normal md:leading-tight lg:leading-relaxed tracking-wide lg:tracking-wider">
-                Everything you <br className="sm:hidden md:hidden lg:hidden" />
-                need to scale
-                <br className="sm:hidden md:hidden lg:block" />
-                your startUp
+              <h1 className="text-3xl text-[#F3F3FF] font-semibold leading-tight tracking-wide sm:text-4xl md:text-4xl xl:text-6xl sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight">
+                Everything you need to scale your startUp
               </h1>
-              <p className="text-base sm:text-lg md:text-base lg:text-lg text-[#F3F3FF] mt-4 sm:mt-6 md:mt-4 leading-relaxed md:leading-relaxed lg:leading-loose tracking-wide">
+              <p className="text-base sm:text-lg md:text-lg lg:text-xl text-[#F3F3FF] mt-4 sm:mt-6 md:mt-6 lg:mt-8 leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed max-w-none sm:max-w-none md:max-w-[85%] lg:max-w-[80%] xl:max-w-[75%]">
                 Get expert-backed support, investor visibility, low-cost
                 services and organic audience access — all in one system
               </p>
@@ -34,7 +33,7 @@ export default function HeroSection() {
               <Button
                 variant="white"
                 size="lg"
-                className="px-6 sm:px-8 md:px-6 py-4 sm:py-6 md:py-4 w-32 sm:w-36 md:w-32 text-sm sm:text-base md:text-sm"
+                className="w-32 px-6 py-4 text-sm sm:px-8 md:px-6 sm:py-6 md:py-4 sm:w-36 md:w-32 sm:text-base md:text-sm"
               >
                 Get Started
               </Button>
@@ -47,14 +46,16 @@ export default function HeroSection() {
               alt="Hero illustration"
               width={600}
               height={400}
-              className="w-full h-auto rounded-lg md:max-h-80 lg:max-h-none object-cover"
+              className="object-cover w-full h-auto rounded-lg md:max-h-80 lg:max-h-96 xl:max-h-none"
             />
           </div>
         </div>
       </div>
-      <div className="mt-8 sm:mt-12 lg:mt-16">
-        <HrComponent />
-      </div>
+      <div className="flex justify-center mt-8 sm:mt-12 lg:mt-16">
+  <div className="w-[80%]">
+    <HrComponent />
+  </div>
+</div>
     </div>
   );
 }

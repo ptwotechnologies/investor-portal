@@ -68,10 +68,10 @@ const faqData: FAQItemProps[] = [
 
 const FAQSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-[22px]  lg:text-4xl font-bold text-gray-900 mb-12 text-left">
-          Here’s what founders 
+    <section className="px-4 py-16 bg-gray-50 md:py-24 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto"> {/* Updated this line */}
+        <h2 className="text-[22px] lg:text-4xl font-bold text-gray-900 mb-12 text-left">
+          Here’s what founders
           <br className=''/>
           usually ask
         </h2>
@@ -85,10 +85,10 @@ const FAQSection: React.FC = () => {
                   key={index}
                   className="cursor-pointer"
                 >
-                  <AccordionTrigger className="text-xl font-normal cursor-pointer text-gray-800 text-left no-underline hover:no-underline">
+                  <AccordionTrigger className="text-xl font-normal text-left text-gray-800 no-underline cursor-pointer hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 mt-2 tracking-wider">
+                  <AccordionContent className="mt-2 tracking-wider text-gray-600">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -104,10 +104,10 @@ const FAQSection: React.FC = () => {
                   key={index + 5}
                   className="cursor-pointer"
                 >
-                  <AccordionTrigger className="text-xl font-normal cursor-pointer text-gray-800 text-left no-underline hover:no-underline">
+                  <AccordionTrigger className="text-xl font-normal text-left text-gray-800 no-underline cursor-pointer hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 mt-2">
+                  <AccordionContent className="mt-2 text-gray-600">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

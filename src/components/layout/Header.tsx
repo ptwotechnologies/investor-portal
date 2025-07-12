@@ -16,17 +16,17 @@ export default function Header() {
       className={`bg-primary-950 text-white ${isScrolled ? 'shadow-md' : ''}`}
     >
       <nav
-        className="flex items-center justify-between py-4 max-w-[1400px] max-sm:px-3.5 mx-auto lg:py-4"
+        className="flex items-center justify-between py-4 max-w-[1400px] px-3.5 mx-auto lg:py-4"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="text-2xl font-bold">
-            LOGO
+            PORTAL
           </Link>
         </div>
 
         {/* Centered desktop navigation */}
-        <div className="hidden flex-1 lg:flex lg:justify-center">
+        <div className="flex-1 hidden lg:flex lg:justify-center">
           <NavLinks navContainerRef={navContainerRef} />
         </div>
 

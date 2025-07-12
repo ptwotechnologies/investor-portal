@@ -41,12 +41,12 @@ const ConsultationsComponent: React.FC = () => {
 
   return (
     <div className="bg-[#828282] text-white p-8 md:p-12 lg:p-16 min-h-min">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-normal mb-12 text-left">
+      <div className="max-w-[1440px] mx-auto"> {/* Updated this line */}
+        <h1 className="mb-12 text-3xl font-normal text-left md:text-4xl">
           Consultations that move you forward
         </h1>
 
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
           {consultations.map((item) => (
             <div key={item.id} className="relative pl-6">
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[#a7a7a7] opacity-60"></div>
@@ -63,7 +63,7 @@ const ConsultationsComponent: React.FC = () => {
           ))}
         </div>
 
-        <div className="md:hidden space-y-8">
+        <div className="space-y-8 md:hidden">
           {consultations.map((item) => (
             <div key={item.id} className="relative pl-6">
               <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-white opacity-60"></div>
