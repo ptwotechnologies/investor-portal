@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.className}>
-      {/* Make body a flex container spanning full height */}
+     
       <body className="flex flex-col min-h-screen">
         <Suspense fallback={<Loader />}>
           <Header />

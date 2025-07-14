@@ -1,10 +1,12 @@
 import React from 'react';
 
-function HrComponent() {
+interface HrComponentProps {
+  color?: string;
+}
+
+function HrComponent({ color = '#192847' }: HrComponentProps) {
   return (
-    <>
-      <hr className="w-full border-t-2  border-[#192847]" />
-    </>
+    <hr className="w-full border-t-2" style={{ borderColor: color }} />
   );
 }
 

@@ -68,8 +68,8 @@ const faqData: FAQItemProps[] = [
 
 const FAQSection: React.FC = () => {
   return (
-    <section className="px-4 py-16 bg-gray-50 md:py-24 sm:px-6 lg:px-8">
-      <div className="max-w-[1440px] mx-auto"> {/* Updated this line */}
+    <section className="px-4 py-6 bg-gray-50 ">
+      <div className="max-w-[1440px] mx-auto"> 
         <h2 className="text-[22px] lg:text-4xl font-bold text-gray-900 mb-12 text-left">
           Here’s what founders
           <br className=''/>
