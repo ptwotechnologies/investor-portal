@@ -68,15 +68,15 @@ const faqData: FAQItemProps[] = [
 
 const FAQSection: React.FC = () => {
   return (
-    <section className="px-4 py-6 bg-gray-50 ">
-      <div className="max-w-[1440px] mx-auto"> 
-        <h2 className="text-[22px] lg:text-4xl font-bold text-gray-900 mb-12 text-left">
+    <section className="bg-gray-50 px-4 py-6">
+      <div className="mx-auto max-w-[1440px]">
+        <h2 className="mb-12 text-left text-[22px] font-bold text-gray-900 lg:text-[40px]">
           Here’s what founders
-          <br className=''/>
+          <br className="" />
           usually ask
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-2">
           <div>
             <Accordion type="single" collapsible className="w-full">
               {faqData.slice(0, 5).map((faq, index) => (
@@ -85,7 +85,7 @@ const FAQSection: React.FC = () => {
                   key={index}
                   className="cursor-pointer"
                 >
-                  <AccordionTrigger className="text-xl font-normal text-left text-gray-800 no-underline cursor-pointer hover:no-underline">
+                  <AccordionTrigger className="cursor-pointer text-left text-xl font-normal text-gray-800 no-underline hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="mt-2 tracking-wider text-gray-600">
@@ -104,7 +104,7 @@ const FAQSection: React.FC = () => {
                   key={index + 5}
                   className="cursor-pointer"
                 >
-                  <AccordionTrigger className="text-xl font-normal text-left text-gray-800 no-underline cursor-pointer hover:no-underline">
+                  <AccordionTrigger className="cursor-pointer text-left text-xl font-normal text-gray-800 no-underline hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="mt-2 text-gray-600">

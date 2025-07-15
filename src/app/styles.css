@@ -1,14 +1,12 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-
 @layer base {
   * {
     border-color: var(--color-border);
     outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
   }
 }
-
 
 @keyframes growBox {
   0% {
@@ -59,7 +57,7 @@
 }
 
 .custom-pagination .swiper-pagination-bullet {
-  background-color: #768499; 
+  background-color: #768499;
   opacity: 1;
   transition: background-color 0.3s ease;
 }
@@ -73,42 +71,42 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  padding-left: 1rem;     /* 16px */
-  padding-right: 1rem;    /* 16px */
+  padding-left: 1rem; /* 16px */
+  padding-right: 1rem; /* 16px */
 }
 
 /* Responsive padding variations */
 @media (min-width: 425px) {
   .container {
-    padding-left: 1.25rem;  /* 20px */
+    padding-left: 1.25rem; /* 20px */
     padding-right: 1.25rem; /* 20px */
   }
 }
 
 @media (min-width: 640px) {
   .container {
-    padding-left: 1.5rem;   /* 24px */
-    padding-right: 1.5rem;  /* 24px */
+    padding-left: 1.5rem; /* 24px */
+    padding-right: 1.5rem; /* 24px */
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    padding-left: 2rem;     /* 32px */
-    padding-right: 2rem;    /* 32px */
+    padding-left: 2rem; /* 32px */
+    padding-right: 2rem; /* 32px */
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding-left: 3rem;     /* 48px */
-    padding-right: 3rem;    /* 48px */
+    padding-left: 3rem; /* 48px */
+    padding-right: 3rem; /* 48px */
   }
 }
 
 @media (min-width: 1280px) {
   .container {
-    padding-left: 4rem;     /* 64px */
-    padding-right: 4rem;    /* 64px */
+    padding-left: 4rem; /* 64px */
+    padding-right: 4rem; /* 64px */
   }
 }
